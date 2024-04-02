@@ -11,8 +11,10 @@ header{
 }
 
 nav {
+    flex-direction: column;
     position: fixed;
     top: 10rem;
+    left: 2rem;
     padding: 0.5rem;
     background-color: #B0A695;
 }
