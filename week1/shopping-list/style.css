@@ -10,5 +10,23 @@ header{
     background-color: #EBE3D5;
 }
 
+nav {
+    position: fixed;
+    top: 10rem;
+    padding: 0.5rem;
+    background-color: #B0A695;
+}
 
+.nav {
+    list-style: none;
+    padding: 0.5rem;
+    text-align: center;
+}
 
+nav > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+    background-color: #EBE3D5;
+}
