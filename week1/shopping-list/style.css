@@ -1,5 +1,4 @@
 /* body */
-
 body{
     background-color: #F3EEEA;
 }
@@ -17,8 +16,8 @@ header{
     background-color: #EBE3D5;
 }
 
-/* nav */
 
+/* nav */
 nav {
     display: flex;
     flex-direction: column;
@@ -44,7 +43,6 @@ nav > li {
 }
 
 /* main */
-
 main{
     margin-top: 5rem;
     margin-left: 15rem;
@@ -65,12 +63,16 @@ main > section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem;
+    margin: 0.5rem;
     background-color: white;
+    line-height: 0.3rem;
 }
 
 .product_img{
     display: flex;
     width: 12rem;
     height: 16rem;
+    margin-bottom: 0.5rem;
+    margin: 0.5rem;
+    /* border-radius: 0.5rem; */
 }
