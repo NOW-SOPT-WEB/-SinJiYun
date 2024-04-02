@@ -1,5 +1,10 @@
-/* header */
+/* body */
 
+body{
+    background-color: #F3EEEA;
+}
+
+/* header */
 header{
     display: flex;
     justify-content: space-between;
@@ -15,6 +20,7 @@ header{
 /* nav */
 
 nav {
+    display: flex;
     flex-direction: column;
     position: fixed;
     top: 10rem;
@@ -37,3 +43,34 @@ nav > li {
     background-color: #EBE3D5;
 }
 
+/* main */
+
+main{
+    margin-top: 5rem;
+    margin-left: 15rem;
+    background-color: #F3EEEA;
+}
+
+main > section{
+    padding-top: 2rem;
+    padding-left: 1rem;
+}
+
+.product_layout{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    background-color: white;
+}
+
+.product_img{
+    display: flex;
+    width: 12rem;
+    height: 16rem;
+}
