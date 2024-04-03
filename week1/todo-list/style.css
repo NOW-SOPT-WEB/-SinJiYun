@@ -1,1 +1,11 @@
 @import "reset.css";
+
+/* body */
+body{
+    background: linear-gradient(#F4D160, #75C2F6);
+}
+
+/* header */
+header{
+    height: 20rem;
+}
