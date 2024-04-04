@@ -3,6 +3,8 @@
 /* body */
 body{
     background: linear-gradient(#F4D160, #75C2F6);
+    height: 100dvh;
+    margin: 0;
 }
 
 /* header */
@@ -22,16 +24,24 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 15rem;
+    margin: 5rem;
 }
 
 section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-}
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+    }
 
 .todo{
+    display: flex;
     margin-top: 2rem;
+    gap: 1rem;
+    width: 10rem;
+}
+
+p{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
