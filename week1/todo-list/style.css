@@ -2,9 +2,9 @@
 
 /* body */
 body{
-    background: linear-gradient(#F4D160, #75C2F6);
     height: 100dvh;
     margin: 0;
+    background: linear-gradient(#F4D160, #75C2F6);
 }
 
 /* header */
@@ -35,13 +35,16 @@ section{
 
 .todo{
     display: flex;
+    width: 17rem;
+    padding: 1rem;
     margin-top: 2rem;
+    border-radius: 0.5rem;
+    background-color: white;
     gap: 1rem;
-    width: 10rem;
 }
 
 p{
-    overflow: hidden;
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
