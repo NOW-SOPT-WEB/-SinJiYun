@@ -5,6 +5,9 @@ body{
     height: 100dvh;
     margin: 0;
     background: linear-gradient(#F4D160, #75C2F6);
+    font-family: "Bagel Fat One", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /* header */
