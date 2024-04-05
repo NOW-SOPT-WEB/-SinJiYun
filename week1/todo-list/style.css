@@ -36,16 +36,21 @@ input{
 /* main */
 main{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5rem;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
 }
 
 section{
     justify-content: center;
     padding: 3rem;
+    margin: 3rem;
     text-align: center;
     }
+
+h2{
+    font-size: 2rem;
+}    
 
 .todo{
     display: flex;
