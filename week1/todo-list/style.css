@@ -23,6 +23,9 @@ header{
 }
 
 .add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 2rem;
 }
 
@@ -30,6 +33,16 @@ input{
     width: 20rem;
     height: 3rem;
     border-radius: 0.3rem;
+    border-width: 0rem;
+}
+
+.addButton{
+    width: 4rem;
+    height: 3rem;
+    margin-left: 1rem;
+    border-radius: 0.3rem;
+    background-color: beige;
+    font-size: 2rem;
     border-width: 0rem;
 }
 
