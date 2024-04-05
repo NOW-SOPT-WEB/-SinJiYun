@@ -46,6 +46,11 @@ input{
     border-width: 0rem;
 }
 
+.addButton:active{
+    position: relative;
+    top:2px;
+}
+
 /* main */
 main{
     display: flex;
@@ -90,6 +95,11 @@ button{
     border-radius: 50%;
     background-color: beige;
     border-width: 0rem;
+}
+
+button:active{
+    position: relative;
+    top:2px;
 }
 
 @keyframes listAnimation {
