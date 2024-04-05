@@ -68,6 +68,7 @@ h2{
 .todo{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 15rem;
     padding: 1rem;
     margin-top: 2rem;
@@ -81,6 +82,14 @@ p{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+button{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: beige;
+    border-width: 0rem;
 }
 
 @keyframes listAnimation {
