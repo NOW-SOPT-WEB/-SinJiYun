@@ -2,7 +2,7 @@
 
 /* body */
 body{
-    height: 100dvh;
+    height: 100%;
     margin: 0;
     background: linear-gradient(#F4D160, #75C2F6);
     font-weight: 400;
@@ -55,7 +55,9 @@ input{
 main{
     display: flex;
     justify-content: center;
+    height: 100%;
     padding: 3rem;
+    padding-bottom: 7rem;
     text-align: center;
 }
 
