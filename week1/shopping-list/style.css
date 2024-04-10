@@ -56,12 +56,11 @@ nav {
     text-align: center;
 }
 
-nav > li {
-    display: flex;
+li {
+    display: block;
     justify-content: center;
     align-items: center;
-    height: 5rem;
-    padding: 0.3rem;
+    padding: 1rem;
     background-color: #EBE3D5;
 }
 
@@ -117,5 +116,4 @@ footer{
     width: 100%;
     height: 7rem;
     background-color: #776B5D;
-    background-size: cover;
 }
