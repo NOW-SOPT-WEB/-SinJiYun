@@ -61,7 +61,14 @@ main{
     text-align: center;
 }
 
-section{
+.not_started{
+    justify-content: center;
+    padding: 3rem;
+    margin: 3rem;
+    text-align: center;
+    }
+
+.done{
     justify-content: center;
     padding: 3rem;
     margin: 3rem;
