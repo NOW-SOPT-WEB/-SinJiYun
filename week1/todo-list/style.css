@@ -61,13 +61,7 @@ main{
     text-align: center;
 }
 
-.not_started{
-    justify-content: center;
-    padding: 3rem;
-    margin: 3rem;
-    text-align: center;
-    }
-
+.not_started
 .done{
     justify-content: center;
     padding: 3rem;
