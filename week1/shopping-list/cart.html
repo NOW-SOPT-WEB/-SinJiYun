@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cartstyle.css" />
     <title>신지의 먹킷리스트</title>
     <script src="https://kit.fontawesome.com/a547149653.js" crossorigin="anonymous"></script>
-    <style>
+    <!-- <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -23,13 +23,6 @@
         </button>
     </header>
 
-    <nav class="nav">
-        <h2 class="nav_title">먹킷리스트</h2>
-        <button class="nav_button nav_all" type="button" >전체</button>
-        <button class="nav_button nav_meal" type="button">식사</button>
-        <button class="nav_button nav_dessert" type="button">디저트</button>
-        <button class="nav_button nav_drink" type="button">음료</button>
-    </nav>
 
     <!-- 사이드바 -->
     <nav id="modalRight" class="sideModal">
@@ -41,13 +34,30 @@
         </ul>
       </nav>
 
-    <main class = "main">
-        <section class="section"></section>
-        
-    </main>
-    <footer>
-        <h2>새싹 웨비 파이팅</h2>
-    </footer>
-    <script src="index.js" type="module"></script>
+      <main>
+
+        <div class="cart">
+            <table class="table">
+                <tr>
+                    <th scope="col">
+                        check
+                        <input type="checkbox" class="all_checkbox">
+                    </th>
+                    <th scope="col" colspan="2">상품 정보</th>
+                    <th scope="col">상품 금액</th>
+                    <th scope="col">카테고리</th>
+                    <th scope="col">비고</th>
+                </tr>
+            </table> 
+        </div>
+    
+        <div class="buy_btn">
+            <button>구매하기</button>
+            <button>홈으로</button>
+        </div>
+
+      </main>
+
+    <script src="cart.js" type="module"></script>
 </body>
 </html> 
