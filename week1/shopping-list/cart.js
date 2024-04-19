@@ -36,7 +36,7 @@ closeBtn.addEventListener("click", () => {
 let cartItemCard = cartItems.map(item => {
     return `
     <tr>
-    <td><input type="checkBox" class="checkBox"></td>
+    <td><input type="checkBox" class="checkBox" id="check${item.title}"></td>
     <td><img src="${item.image}" style="width: 4rem;"></td>
     <td>${item.title}</td>
     <td>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</td>
@@ -62,7 +62,7 @@ deleteBtns.forEach((deleteBtn, index) => {
 });
 
 // 체크박스
-// 체크박스 확인 후 -> 체크된 것만 새로운 로컬스토리지에 옮기기 -> 체크된 아이템만 모달 로드... 가능할까?
+// 체크될 때마다 새로운 로컬스토리지에 옮기기 -> 체크 취소하면 지우기 -> 체크된 아이템만 모달 로드... 가능할까? 너무 비효율적인데
 
 // 전체 체크박스
 const allCheckbox = document.querySelector(".allCheckbox");
@@ -79,11 +79,47 @@ function selectAll(selectAll)  {
     console.log("전체 체크");
 });
 
+// 일부 체크 확인
+let checkedItem = []
+const checkBox = document.querySelectorAll(".checkBox");
+
+checkBox.forEach((checkbox, index) => {
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            checkedItem.push(cartItems[index]);
+        } else {
+            const removedIndex = checkedItem.indexOf(cartItems[index]);
+            if (removedIndex !== -1) {
+                checkedItem.splice(removedIndex, 1);
+            }
+        }
+        console.log(checkedItem);
+    });
+});
+
 // 구매
 buyBtn.addEventListener("click", () => {
     buyModal.classList.remove("buyModalClose");  
     buyModal.classList.add("buyModalOpen");
     console.log("모달 열음");
+    // buyItems();
+
+    let buyItems = checkedItem.map(item => {
+        console.log(checkedItem);
+        pay += Number(item.price);
+        console.log(pay);
+        return `
+        <article class="buyItem">
+            <img src="${item.image}" alt="${item.title}">
+            <h4>${item.title}</h4>
+            <p>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원</p>
+        </article>
+        `;
+    });
+    
+    buyItem.innerHTML += buyItems.join('');
+    allPay.innerHTML = `총 금액 : ${String(pay).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원`;
+    
 });
 
 // modal 닫기
@@ -94,20 +130,6 @@ buyModalClose.addEventListener("click", () => {
 });
 
 let pay = 0
-
-let buyItems = cartItems.map(item => {
-    pay += Number(item.price)
-    return `
-    <article class="buyItem">
-        <img src="${item.image}" alt="${item.title}">
-        <h4>${item.title}</h4>
-        <p>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원</p>
-    </article>
-    `;
-});
-
-buyItem.innerHTML += buyItems.join('');
-allPay.innerHTML = `총 금액 : ${String(pay).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원`;
 
 // 모달에서 구매 버튼
 modalBuyButton.addEventListener("click", event => {
@@ -120,4 +142,18 @@ modalBuyButton.addEventListener("click", event => {
     buyModal.classList.add("buyModalClose");
     console.log("모달 닫음");
 
+    // 구매한 품목 삭제
+    let cart = 0;
+    const deleteCartItem = cartItems.map(cartItem =>
+    {
+        const deleteCheckItem = checkedItem.map(checkItem =>{
+            console.log(checkedItem.title)
+            if (cartItem.title == checkedItem.title){
+                cartItems.splice(cart, 1);
+            }
+        });
+        cart += 1;
+        localStorage.setItem('cartitems', JSON.stringify(cartItems));
+    checkedItem = [];
+    });
 });
