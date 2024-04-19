@@ -1,28 +1,36 @@
 import { WISH_LIST} from "./constants.js"
 
-const itemSection = document.querySelector(".section");
+// navBar 버튼 연결
+const navBtnAll = document.querySelector(".nav_all");
+const navBtnMeal = document.querySelector(".nav_meal");
+const navBtnDessert = document.querySelector(".nav_dessert");
+const navBtnDrink = document.querySelector(".nav_drink");
+
+// sideBar
 const sideBtn = document.querySelector(".sidebarBtn");
 const closeBtn = document.querySelector(".closeBtn");
 const sideBar = document.querySelector(".sideBar");
+
+// section
+const itemSection = document.querySelector(".section");
 
 // 전체 선택
 const allItem = function() {
     const itemCards = WISH_LIST.map(item => {
         return `
-        <article class="item item-skin">
+        <article class="item">
             <img src="${item.image}" alt="${item.title}">
             <h4>${item.title}</h4>
-            <p>${item.price}원</p>
+            <p>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원</p>
             <button class="fa-solid fa-heart" type="button"></button>
         </article>
         `;
     });
     itemSection.innerHTML = itemCards.join('');
-    console.log("전체 선택")
 };
 
-allItem();
 
+// 일부 선택
 const filterItem = function(category) {
     let newItem = WISH_LIST.filter(function(item) {
         return (item.category === category);
@@ -30,7 +38,7 @@ const filterItem = function(category) {
 
     const newItemCard = newItem.map(item => {
         return `
-        <article class="item item-skin">
+        <article class="item">
             <img src="${item.image}" alt="${item.title}">
             <h4>${item.title}</h4>
             <p>${item.price}원</p>
@@ -41,18 +49,15 @@ const filterItem = function(category) {
     itemSection.innerHTML = newItemCard.join('');
 }
 
-// 버튼 연결
-const navBtnAll = document.querySelector(".nav_all");
-const navBtnMeal = document.querySelector(".nav_meal");
-const navBtnDessert = document.querySelector(".nav_dessert");
-const navBtnDrink = document.querySelector(".nav_drink");
+allItem();
 
 navBtnAll.addEventListener("click", () => {allItem()});
 navBtnMeal.addEventListener("click", () => {filterItem("meal")});
 navBtnDessert.addEventListener("click", () => {filterItem("dessert")});
 navBtnDrink.addEventListener("click", () => {filterItem("drink")});
 
-// 사이드바 1
+
+// 사이드바
 sideBtn.addEventListener("click", () => {
     sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
     sideBar.classList.add("sideBarOpen");
@@ -65,20 +70,27 @@ closeBtn.addEventListener("click", () => {
     console.log("사이드바 닫음");
 });
 
-// // 사이드바 2
+// localStorage에 추가
+let itemCart = JSON.parse(localStorage.getItem('cartitems')) || []; 
 
-// function openMenu() {
-//     document.getElementById("main").style.marginRight = "250px";
-//     document.querySelector('.sideBar').style.width = "250px";
-//     document.querySelector('.sideBarOpen').style.display = 'none';
-//     console.log("사이드바 열음");
-// }
+itemSection.addEventListener("click", event => {
+    const evTarget = event.target;
+    if (evTarget.classList.contains("item")){
 
-// function closeMenu() { 
-//     document.getElementById("main").style.marginLeft= "0";
-//     document.querySelector('.sideBar').style.width = "0";
-//     document.querySelector('.sideBarOpen').style.display = 'block';
-// }
+        const itemTitle = evTarget.querySelector("h4").textContent;
+        const itemInfo = WISH_LIST.find(item => item.title === itemTitle);
 
-// sideBar.addEventListener("click", () => {openMenu()});
-// closeBtn.addEventListener("click", () => {closeMenu()});
+        // alert
+        const confirmed = confirm(`
+        ${itemTitle}를 장바구니에 추가하시겠습니까?
+        `);
+
+        if (confirmed) {
+            itemCart.push(itemInfo);
+            localStorage.setItem('cartitems', JSON.stringify(itemCart));
+            console.log(`${itemTitle} 장바구니 이동`);
+        } else {
+            console.log("취소");
+        }
+    }
+});

@@ -9,7 +9,6 @@ body{
     font-style: normal;
 }
 
-
 /* header */
 header{
     display: flex;
@@ -24,7 +23,7 @@ header{
 }
 
 .home,
-.sideBarOpen{
+.sidebarBtn{
     border: none;
     background-color: transparent;
 }
@@ -81,8 +80,7 @@ h1{
     background-color: #F3EEEA;
 }
 
-/* sideBar 1*/
-/* 현재 안 됨... */
+/* sideBar */
 
 .sideBar {
     display: flex;
@@ -161,7 +159,7 @@ h2{
     scroll-margin-top: 5rem;
 }
 
-.product_layout{
+.item_layout{
     display: flex;
     flex-wrap: wrap;
 }

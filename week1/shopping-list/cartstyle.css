@@ -23,7 +23,7 @@ header{
 }
 
 .home,
-.sideBarOpen{
+.sidebarBtn{
     border: none;
     background-color: transparent;
 }
@@ -45,9 +45,6 @@ h1{
 }
 
 /* sidebar */
-
-/* sideBar 1*/
-/* 현재 안 됨... */
 
 .sideBar {
     display: flex;
@@ -138,7 +135,8 @@ table td {
     background-color:floralwhite;
 }
 
-.buy_btn{
+/* 구매하기 / 홈으로 버튼 */
+.twoBtn{
     display: flex;
     justify-content: center;
 }
