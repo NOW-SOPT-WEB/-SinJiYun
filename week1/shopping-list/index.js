@@ -1,8 +1,9 @@
 import { WISH_LIST} from "./constants.js"
 
 const itemSection = document.querySelector(".section");
-const sideBar = document.querySelector(".sideBarOpen");
+const sideBtn = document.querySelector(".sidebarBtn");
 const closeBtn = document.querySelector(".closeBtn");
+const sideBar = document.querySelector(".sideBar");
 
 // 전체 선택
 const allItem = function() {
@@ -52,7 +53,7 @@ navBtnDessert.addEventListener("click", () => {filterItem("dessert")});
 navBtnDrink.addEventListener("click", () => {filterItem("drink")});
 
 // 사이드바 1
-sideBar.addEventListener("click", () => {
+sideBtn.addEventListener("click", () => {
     sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
     sideBar.classList.add("sideBarOpen");
     console.log("사이드바 열음");

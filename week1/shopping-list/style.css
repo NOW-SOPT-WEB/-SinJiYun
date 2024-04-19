@@ -110,7 +110,7 @@ h1{
 
 .sideBarOpen {
     right: 0rem;
-    transition: right 1.5s ease-in;
+    transition: right 0.5s ease-in;
 }
 
 .sideBarClose {
@@ -130,38 +130,6 @@ h1{
 .menuList:hover{
     background-color: #EBE3D5;
 }
-
-/* sideBar 2*/
-
-/* .sideBar {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    width: 20rem;
-    height: 100%;
-    z-index: 1;
-    background-color: floralwhite;
-    overflow-x: hidden;
-    transition: 0.3s;/*펼침속도*/
-/* }
-
-.closeBtn {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    border: none;
-    border-radius: 1rem;
-    background-color: transparent;
-    color: saddlebrown;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.closeBtn:hover {
-    color:burlywood;
-} */
-
 
 /* main */
 main{
