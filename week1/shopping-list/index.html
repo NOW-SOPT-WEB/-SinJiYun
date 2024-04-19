@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css" />
     <title>신지의 먹킷리스트</title>
     <script src="https://kit.fontawesome.com/a547149653.js" crossorigin="anonymous"></script>
-    <style>
+    <!-- <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -18,9 +18,19 @@
             <i class="fa-solid fa-globe"></i>
         </button>
         <h1>신지의 먹킷리스트</h1>
-        <button class="openSidebar" type="button">
+        <button class="sideBarOpen" type="button">
             <i class="fa-solid fa-bars"></i>
         </button>
+
+        <!-- 사이드바 -->
+    <nav class="sideBar sideBarClose">
+        <button class="closeBtn">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="menuList" onclick="location.href='#'" type="button">관심 상품 목록</button>
+        <button class="menuList" onclick="location.href='#'" type="button">관리자 페이지</button>
+        <button class="menuList" onclick="location.href='./cart.html'" type="button">장바구니</button>
+      </nav>
     </header>
 
     <nav class="nav">
@@ -31,15 +41,6 @@
         <button class="nav_button nav_drink" type="button">음료</button>
     </nav>
 
-    <!-- 사이드바 -->
-    <nav id="modalRight" class="sideModal">
-        <i id="closeModal" class="fa-solid fa-arrow-right" ></i>
-        <ul>
-          <li class="modalList"><a href="#">관심 상품 목록</a></li>
-          <li class="modalList"><a href="#">관리자 페이지</a></li>
-          <li class="modalList"><a href="./cart.html">장바구니</a></li>
-        </ul>
-      </nav>
 
     <main class = "main">
         <section class="section"></section>

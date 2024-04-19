@@ -34,6 +34,58 @@ h1{
 
 /* sidebar */
 
+/* sideBar 1*/
+/* 현재 안 됨... */
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    width: 20rem;
+    height: 100%;
+    z-index: 1;
+    background-color: #D1BB9E;
+}
+
+.closeBtn {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    border: none;
+    background-color: transparent;
+    color: #776B5D;
+    /* font-weight: bold; */
+    /* font-size: 1.1rem; */
+}
+
+.closeBtn:hover {
+    color:#B0A695;
+}
+
+.sideBarOpen {
+    right: 0rem;
+    transition: right 1.5s ease-in;
+}
+
+.sideBarClose {
+    right: 20rem;
+    transition: right 0.5s ease-in;
+}
+
+.menuList{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border: 0;
+    background-color: #D1BB9E;
+}
+
+.menuList:hover{
+    background-color: #EBE3D5;
+}
+
 
 /* main */
 
@@ -50,18 +102,19 @@ main{
     width: 60rem;
     max-height: 19rem;
     margin: 10rem;
+    /* 스크롤 설정 */
     overflow-y: scroll;
 }
 
 table {
-    border: 10px;
+    border: 1rem;
     text-align: center;
 }
 
 /* table head */
 table th {
     position: sticky;
-    width: 10rem;
+    width: 12rem;
     height: 3rem;
     background-color: #EBE3D5;
 }

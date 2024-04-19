@@ -1,6 +1,8 @@
 import { WISH_LIST} from "./constants.js"
 
 const itemSection = document.querySelector(".section");
+const sideBar = document.querySelector(".sideBarOpen");
+const closeBtn = document.querySelector(".closeBtn");
 
 // 전체 선택
 const allItem = function() {
@@ -39,18 +41,43 @@ const filterItem = function(category) {
 }
 
 // 버튼 연결
-
 const navBtnAll = document.querySelector(".nav_all");
 const navBtnMeal = document.querySelector(".nav_meal");
 const navBtnDessert = document.querySelector(".nav_dessert");
 const navBtnDrink = document.querySelector(".nav_drink");
 
-const meal = "meal";
-const dessert = "dessert";
-const drink = "drink";
-
 navBtnAll.addEventListener("click", () => {allItem()});
-navBtnMeal.addEventListener("click", () => {filterItem(meal)});
-navBtnDessert.addEventListener("click", () => {filterItem(dessert)});
-navBtnDrink.addEventListener("click", () => {filterItem(drink)});
+navBtnMeal.addEventListener("click", () => {filterItem("meal")});
+navBtnDessert.addEventListener("click", () => {filterItem("dessert")});
+navBtnDrink.addEventListener("click", () => {filterItem("drink")});
 
+// 사이드바 1
+sideBar.addEventListener("click", () => {
+    sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
+    sideBar.classList.add("sideBarOpen");
+    console.log("사이드바 열음");
+});
+
+closeBtn.addEventListener("click", () => {
+    sideBar.classList.remove("sideBarOpen");
+    sideBar.classList.add("sideBarClose");
+    console.log("사이드바 닫음");
+});
+
+// // 사이드바 2
+
+// function openMenu() {
+//     document.getElementById("main").style.marginRight = "250px";
+//     document.querySelector('.sideBar').style.width = "250px";
+//     document.querySelector('.sideBarOpen').style.display = 'none';
+//     console.log("사이드바 열음");
+// }
+
+// function closeMenu() { 
+//     document.getElementById("main").style.marginLeft= "0";
+//     document.querySelector('.sideBar').style.width = "0";
+//     document.querySelector('.sideBarOpen').style.display = 'block';
+// }
+
+// sideBar.addEventListener("click", () => {openMenu()});
+// closeBtn.addEventListener("click", () => {closeMenu()});

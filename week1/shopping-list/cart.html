@@ -23,19 +23,18 @@
         </button>
     </header>
 
-
     <!-- 사이드바 -->
-    <nav id="modalRight" class="sideModal">
-        <i id="closeModal" class="fa-solid fa-arrow-right" ></i>
-        <ul>
-          <li class="modalList"><a href="#">관심 상품 목록</a></li>
-          <li class="modalList"><a href="#">관리자 페이지</a></li>
-          <li class="modalList"><a href="./cart.html">장바구니</a></li>
-        </ul>
+    <nav class="sideBar sideBarClose">
+        <button class="closeBtn">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="menuList" onclick="location.href='#'" type="button">관심 상품 목록</button>
+        <button class="menuList" onclick="location.href='#'" type="button">관리자 페이지</button>
+        <button class="menuList" onclick="location.href='./cart.html'" type="button">장바구니</button>
       </nav>
 
       <main>
-
+        <!-- 테이블 -->
         <div class="cart">
             <table class="table">
                 <tr>
