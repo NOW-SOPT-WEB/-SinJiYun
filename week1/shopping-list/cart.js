@@ -152,7 +152,6 @@ modalBuyButton.addEventListener("click", event => {
                 
             
             });
-            
             localStorage.setItem('cartitems', JSON.stringify(cartItems));
 
 });
