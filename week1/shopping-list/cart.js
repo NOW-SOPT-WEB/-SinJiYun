@@ -17,6 +17,8 @@ const buyModalClose = document.querySelector(".modalClose");
 const buyItem = document.querySelector(".modalItem");
 const allPay = document.querySelector(".allPay");
 
+const modalBuyButton = document.querySelector(".buy");
+
 // 사이드바 
 sideBtn.addEventListener("click", () => {
     sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
@@ -61,14 +63,14 @@ deleteBtns.forEach((deleteBtn, index) => {
 
 // 구매
 buyBtn.addEventListener("click", () => {
-    buyModal.classList.remove("buyModalClose");   // 먼저 삭제해야 함!
+    buyModal.classList.remove("buyModalClose");  
     buyModal.classList.add("buyModalOpen");
     console.log("모달 열음");
 });
 
 // 모달 닫기
 buyModalClose.addEventListener("click", () => {
-    buyModal.classList.remove("buyModalOpen");   // 먼저 삭제해야 함!
+    buyModal.classList.remove("buyModalOpen");   
     buyModal.classList.add("buyModalClose");
     console.log("모달 닫음");
 });
@@ -88,3 +90,16 @@ let buyItems = cartItems.map(item => {
 
 buyItem.innerHTML += buyItems.join('');
 allPay.innerHTML = `총 금액 : ${String(pay).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원`;
+
+// 모달에서 구매 버튼
+modalBuyButton.addEventListener("click", event => {
+    
+    // alert
+    const confirmed = confirm(`주문완료`);
+
+    // 주문 완료 시 모달 닫기
+    buyModal.classList.remove("buyModalOpen");   
+    buyModal.classList.add("buyModalClose");
+    console.log("모달 닫음");
+
+});
