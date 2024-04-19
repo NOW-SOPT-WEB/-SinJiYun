@@ -140,3 +140,33 @@ table td {
     display: flex;
     justify-content: center;
 }
+
+/* 구매 모달 팝업 */
+.buyModal{
+    width: 30rem;
+    height: 50rem;
+    background-color: white;
+}
+
+.buyItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1rem;
+    margin: 1rem;
+    background-color: white;
+}
+
+.buyItem img{
+    width: 9rem;
+    height: 12rem;
+    
+}
+
+.buyModalClose{
+    display: none;
+}
+
+.buyModalOpen{
+    display: block;
+}
