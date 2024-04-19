@@ -5,7 +5,7 @@ const closeBtn = document.querySelector(".closeBtn");
 const sideBar = document.querySelector(".sideBar");
 
 // localStorage 불러오기
-const cartItems = JSON.parse(localStorage.getItem('cartitems'));
+let cartItems = JSON.parse(localStorage.getItem('cartitems'));
 const tableClass = document.querySelector(".table");
 
 // 구매하기 버튼
@@ -65,6 +65,8 @@ deleteBtns.forEach((deleteBtn, index) => {
 // 체크될 때마다 새로운 로컬스토리지에 옮기기 -> 체크 취소하면 지우기 -> 체크된 아이템만 모달 로드... 가능할까? 너무 비효율적인데
 
 // 전체 체크박스
+
+let checkedItem = []
 const allCheckbox = document.querySelector(".allCheckbox");
 function selectAll(selectAll)  {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -77,10 +79,10 @@ function selectAll(selectAll)  {
     allCheckbox.addEventListener("click", () => {
     selectAll(this);
     console.log("전체 체크");
+    checkedItem = cartItems;
 });
 
 // 일부 체크 확인
-let checkedItem = []
 const checkBox = document.querySelectorAll(".checkBox");
 
 checkBox.forEach((checkbox, index) => {
@@ -142,18 +144,15 @@ modalBuyButton.addEventListener("click", event => {
     buyModal.classList.add("buyModalClose");
     console.log("모달 닫음");
 
-    // 구매한 품목 삭제
-    let cart = 0;
-    const deleteCartItem = cartItems.map(cartItem =>
-    {
-        const deleteCheckItem = checkedItem.map(checkItem =>{
-            console.log(checkedItem.title)
-            if (cartItem.title == checkedItem.title){
-                cartItems.splice(cart, 1);
-            }
-        });
-        cart += 1;
-        localStorage.setItem('cartitems', JSON.stringify(cartItems));
-    checkedItem = [];
-    });
+            let deleteCheckItem = checkedItem.map(checkItem =>{
+                console.log(checkItem.title);
+                cartItems = cartItems.filter(function(item) {
+                    return item !== checkedItem;
+                });
+                
+            
+            });
+            
+            localStorage.setItem('cartitems', JSON.stringify(cartItems));
+
 });
