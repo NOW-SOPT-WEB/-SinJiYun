@@ -150,10 +150,10 @@ h2{
 }
 
 .section {
-    display: grid;
+    display: flex;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    grid-template-columns: repeat(5, 200px);
+    flex-wrap: wrap;
     gap: 1.2rem;
     scroll-margin-top: 5rem;
 }
@@ -183,8 +183,8 @@ h2{
 }
 
 .fa-heart{
-    background-color: transparent;
     border: none;
+    background-color: transparent;
 }
 
 .fa-heart:hover{

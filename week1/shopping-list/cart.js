@@ -62,7 +62,7 @@ deleteBtns.forEach((deleteBtn, index) => {
 });
 
 // 체크박스
-// 체크박스 확인 후 -> 체크된 것만 새로운 로컬스토리지에 옮기기 -> 체크된 아이템만 모달 로드
+// 체크박스 확인 후 -> 체크된 것만 새로운 로컬스토리지에 옮기기 -> 체크된 아이템만 모달 로드... 가능할까?
 
 // 전체 체크박스
 const allCheckbox = document.querySelector(".allCheckbox");
@@ -79,7 +79,6 @@ function selectAll(selectAll)  {
     console.log("전체 체크");
 });
 
-
 // 구매
 buyBtn.addEventListener("click", () => {
     buyModal.classList.remove("buyModalClose");  
@@ -87,7 +86,7 @@ buyBtn.addEventListener("click", () => {
     console.log("모달 열음");
 });
 
-// moal 닫기
+// modal 닫기
 buyModalClose.addEventListener("click", () => {
     buyModal.classList.remove("buyModalOpen");   
     buyModal.classList.add("buyModalClose");
