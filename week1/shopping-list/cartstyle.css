@@ -143,9 +143,13 @@ table td {
 
 /* 구매 모달 팝업 */
 .buyModal{
-    width: 30rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70rem;
     height: 50rem;
     background-color: white;
+    transform: translate(-50%, -50%);
 }
 
 .buyItem{
@@ -169,4 +173,8 @@ table td {
 
 .buyModalOpen{
     display: block;
+}
+
+.modalClose{
+    float: right;
 }

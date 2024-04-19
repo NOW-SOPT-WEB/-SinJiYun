@@ -15,6 +15,7 @@ const buyBtn = document.querySelector(".buyBtn");
 const buyModal = document.querySelector(".buyModal");
 const buyModalClose = document.querySelector(".modalClose");
 const buyItem = document.querySelector(".modalItem");
+const allPay = document.querySelector(".allPay");
 
 // 사이드바 
 sideBtn.addEventListener("click", () => {
@@ -72,14 +73,18 @@ buyModalClose.addEventListener("click", () => {
     console.log("모달 닫음");
 });
 
+let pay = 0
+
 let buyItems = cartItems.map(item => {
+    pay += Number(item.price)
     return `
     <article class="buyItem">
         <img src="${item.image}" alt="${item.title}">
         <h4>${item.title}</h4>
-        <p>${item.price}원</p>
+        <p>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원</p>
     </article>
     `;
 });
 
 buyItem.innerHTML += buyItems.join('');
+allPay.innerHTML = `총 금액 : ${String(pay).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원`;
