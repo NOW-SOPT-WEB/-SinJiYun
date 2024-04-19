@@ -108,8 +108,9 @@ main{
 /* table */
 
 .cart {
+    display: flex;
     width: 60rem;
-    max-height: 19rem;
+    max-height: 30rem;
     margin: 10rem;
     /* 스크롤 설정 */
     overflow-y: scroll;

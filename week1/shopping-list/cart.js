@@ -36,7 +36,7 @@ closeBtn.addEventListener("click", () => {
 let cartItemCard = cartItems.map(item => {
     return `
     <tr>
-    <td><input type="checkbox" class="checkbox"></td>
+    <td><input type="checkBox" class="checkBox"></td>
     <td><img src="${item.image}" style="width: 4rem;"></td>
     <td>${item.title}</td>
     <td>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</td>
@@ -61,6 +61,25 @@ deleteBtns.forEach((deleteBtn, index) => {
     });
 });
 
+// 체크박스
+// 체크박스 확인 후 -> 체크된 것만 새로운 로컬스토리지에 옮기기 -> 체크된 아이템만 모달 로드
+
+// 전체 체크박스
+const allCheckbox = document.querySelector(".allCheckbox");
+function selectAll(selectAll)  {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+    checkboxes.forEach((checkBox) => {
+        checkBox.checked = allCheckbox.checked
+    })
+}
+
+    allCheckbox.addEventListener("click", () => {
+    selectAll(this);
+    console.log("전체 체크");
+});
+
+
 // 구매
 buyBtn.addEventListener("click", () => {
     buyModal.classList.remove("buyModalClose");  
@@ -68,7 +87,7 @@ buyBtn.addEventListener("click", () => {
     console.log("모달 열음");
 });
 
-// 모달 닫기
+// moal 닫기
 buyModalClose.addEventListener("click", () => {
     buyModal.classList.remove("buyModalOpen");   
     buyModal.classList.add("buyModalClose");
