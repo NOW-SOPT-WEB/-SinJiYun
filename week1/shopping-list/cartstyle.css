@@ -22,10 +22,22 @@ header{
     background-color: #EBE3D5;
 }
 
+.home,
+.sideBarOpen{
+    border: none;
+    background-color: transparent;
+}
+
 .fa-globe,
 .fa-bars {
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.fa-globe:hover,
+.fa-bars:hover{
+    color:#B0A695;
 }
 
 h1{
