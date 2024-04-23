@@ -1,11 +1,15 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 const Header = () => {
     return(
-        <header>
-            <h1>같은 카드 맞추기</h1>
-        </header>
+        <Title className ="header">
+            <h1>KBO 마스코드 짝맞추기</h1>
+        </Title>
     )
 }
 
 export default Header
+
+const Title = styled.div`
+    text-align: center;
+;`
