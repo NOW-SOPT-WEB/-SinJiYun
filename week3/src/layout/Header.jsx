@@ -25,7 +25,7 @@ const Title = styled.div`
     padding: 3rem;
     text-align: center;
     font-family: ${({ theme }) => theme.fonts.bold};
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: white;
 `
 const ResetBtn = styled.button`
