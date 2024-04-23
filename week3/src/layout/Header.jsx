@@ -11,5 +11,10 @@ const Header = () => {
 export default Header
 
 const Title = styled.div`
+    padding: 3rem;
     text-align: center;
-;`
+    background-color: ${({ theme }) => theme.colors.KBOBlue};
+    font-family: ${({ theme }) => theme.fonts.bold};
+    font-size: 1.6rem;
+    color: white;
+`
