@@ -17,7 +17,7 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
 
 const HeaderLayout = styled.div`
     background-color: ${({ theme }) => theme.colors.KBOBlue};
@@ -51,7 +51,7 @@ const ResetBtn = styled.button`
 `
 const Score = styled.div`
     text-align: center;
-    margin: 2rem;
+    padding: 2rem;
     font-family: ${({ theme }) => theme.fonts.bold};
     font-size: 1.5rem;
     color : white;
