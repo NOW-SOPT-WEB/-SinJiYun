@@ -23,13 +23,11 @@ const modalBuyButton = document.querySelector(".buy");
 sideBtn.addEventListener("click", () => {
     sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
     sideBar.classList.add("sideBarOpen");
-    console.log("사이드바 열음");
 });
 
 closeBtn.addEventListener("click", () => {
     sideBar.classList.remove("sideBarOpen");
     sideBar.classList.add("sideBarClose");
-    console.log("사이드바 닫음");
 });
 
 //  장바구니 table
@@ -78,7 +76,6 @@ function selectAll(selectAll)  {
 
     allCheckbox.addEventListener("click", () => {
     selectAll(this);
-    console.log("전체 체크");
     checkedItem = cartItems;
 });
 
@@ -95,7 +92,6 @@ checkBox.forEach((checkbox, index) => {
                 checkedItem.splice(removedIndex, 1);
             }
         }
-        console.log(checkedItem);
     });
 });
 
@@ -103,13 +99,9 @@ checkBox.forEach((checkbox, index) => {
 buyBtn.addEventListener("click", () => {
     buyModal.classList.remove("buyModalClose");  
     buyModal.classList.add("buyModalOpen");
-    console.log("모달 열음");
-    // buyItems();
 
     let buyItems = checkedItem.map(item => {
-        console.log(checkedItem);
         pay += Number(item.price);
-        console.log(pay);
         return `
         <article class="buyItem">
             <img src="${item.image}" alt="${item.title}">
@@ -128,7 +120,6 @@ buyBtn.addEventListener("click", () => {
 buyModalClose.addEventListener("click", () => {
     buyModal.classList.remove("buyModalOpen");   
     buyModal.classList.add("buyModalClose");
-    console.log("모달 닫음");
 });
 
 let pay = 0
@@ -142,10 +133,8 @@ modalBuyButton.addEventListener("click", event => {
     // 주문 완료 시 모달 닫기
     buyModal.classList.remove("buyModalOpen");   
     buyModal.classList.add("buyModalClose");
-    console.log("모달 닫음");
 
             let deleteCheckItem = checkedItem.map(checkItem =>{
-                console.log(checkItem.title);
                 cartItems = cartItems.filter(function(item) {
                     return item !== checkedItem;
                 });

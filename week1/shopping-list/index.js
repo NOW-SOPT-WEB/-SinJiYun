@@ -61,13 +61,11 @@ navBtnDrink.addEventListener("click", () => {filterItem("drink")});
 sideBtn.addEventListener("click", () => {
     sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
     sideBar.classList.add("sideBarOpen");
-    console.log("사이드바 열음");
 });
 
 closeBtn.addEventListener("click", () => {
     sideBar.classList.remove("sideBarOpen");
     sideBar.classList.add("sideBarClose");
-    console.log("사이드바 닫음");
 });
 
 // localStorage에 추가
@@ -88,9 +86,7 @@ itemSection.addEventListener("click", event => {
         if (confirmed) {
             itemCart.push(itemInfo);
             localStorage.setItem('cartitems', JSON.stringify(itemCart));
-            console.log(`${itemTitle} 장바구니 이동`);
         } else {
-            console.log("취소");
         }
     }
 });
