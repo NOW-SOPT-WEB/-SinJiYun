@@ -66,16 +66,17 @@ deleteBtns.forEach((deleteBtn, index) => {
 
 let checkedItem = []
 const allCheckbox = document.querySelector(".allCheckbox");
-function selectAll(selectAll)  {
+
+function selectAll()  {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     
     checkboxes.forEach((checkBox) => {
-        checkBox.checked = allCheckbox.checked
+        checkBox.checked = selectAll.checked
     })
 }
 
     allCheckbox.addEventListener("click", () => {
-    selectAll(this);
+    selectAll();
     checkedItem = cartItems;
 });
 
@@ -106,13 +107,13 @@ buyBtn.addEventListener("click", () => {
         <article class="buyItem">
             <img src="${item.image}" alt="${item.title}">
             <h4>${item.title}</h4>
-            <p>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원</p>
+            <p>${Number(item.price).toLocaleString('ko-KR')}원</p>
         </article>
         `;
     });
     
     buyItem.innerHTML += buyItems.join('');
-    allPay.innerHTML = `총 금액 : ${String(pay).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원`;
+    allPay.innerHTML = `총 금액 : ${Number(item.price).toLocaleString('ko-KR')}원`;
     
 });
 

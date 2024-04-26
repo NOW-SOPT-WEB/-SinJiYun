@@ -21,7 +21,7 @@ const allItem = function() {
         <article class="item">
             <img src="${item.image}" alt="${item.title}">
             <h4>${item.title}</h4>
-            <p>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원</p>
+            <p>${Number(item.price).toLocaleString('ko-KR')}원</p>
             <button class="fa-solid fa-heart" type="button"></button>
         </article>
         `;
