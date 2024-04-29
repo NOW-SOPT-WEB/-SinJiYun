@@ -1,18 +1,25 @@
-// import { useMemo, useState, useEffect } from "react"
+import { useMemo, useState } from "react"
 import styled from 'styled-components';
 import CARDS from '../constants/card';
-// import Card from "./Card";
+import Card from "./Card";
 
 let cardDeck = [];
 
 const CardContainer = () => {
-    MixedCardDeck()
+    const [finished, setFinished] = useState(false)
+
+    const MixedCardList = useMemo(() => MixedCardDeck(), [finished])
 
     return(
         <GameLayout>
-            컨테이너가 들어갈 자리입니다~
             <CardsLayout>
-                카드들 들어갈 자리
+                {MixedCardList.map((e) => (
+                <Card
+                    data={e}
+                    key={`${e.idx}-${e.item}`}
+                    // handleClick={clicked.length < 2 ? handleClick : null}
+                />
+                ))}
             </CardsLayout>
         </GameLayout>
         
@@ -25,15 +32,14 @@ const GameLayout = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
-    align-items : center;
     background-color: ${({ theme }) => theme.colors.KBOLightBlue};
 `
 
 const CardsLayout = styled.section`
-    
-`
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
 
-// let cardDeck = [];
+`
 
 function MixedCardDeck(){
 
