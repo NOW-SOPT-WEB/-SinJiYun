@@ -1,0 +1,257 @@
+@import "reset.css";
+
+/* body */
+body{
+    background-color: #F3EEEA;
+    
+    font-weight: 400;
+    font-family: "Gowun Dodum", sans-serif;
+    font-style: normal;
+}
+
+/* header */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    background-color: #EBE3D5;
+}
+
+.home,
+.sidebarBtn{
+    border: none;
+    background-color: transparent;
+}
+
+.fa-globe,
+.fa-bars {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.fa-globe:hover,
+.fa-bars:hover{
+    color:#B0A695;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+/* sidebar */
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    width: 20rem;
+    height: 100%;
+    z-index: 1;
+    background-color: #D1BB9E;
+}
+
+.closeBtn {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    border: none;
+    background-color: transparent;
+    color: #776B5D;
+}
+
+.closeBtn:hover {
+    color:#B0A695;
+}
+
+.sideBarOpen {
+    right: 0rem;
+    transition: right 0.5s ease-in;
+}
+
+.sideBarClose {
+    right: -20rem;
+    transition: right 0.5s ease-in;
+}
+
+.menuList{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border: 0;
+    background-color: #D1BB9E;
+}
+
+.menuList:hover{
+    background-color: #EBE3D5;
+}
+
+
+/* main */
+
+main{
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+    margin-left: 15rem;
+    background-color: #F3EEEA;
+}
+
+/* table */
+
+.cart {
+    display: flex;
+    width: 60rem;
+    max-height: 30rem;
+    margin: 10rem;
+    /* 스크롤 설정 */
+    overflow-y: scroll;
+}
+
+table {
+    border: 1rem;
+    border: 0.3rem solid #F3EEEA;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+/* table head */
+table th {
+    position: sticky;
+    width: 12rem;
+    height: 3rem;
+    border: 0.3rem solid #F3EEEA;
+    background-color: #EBE3D5;
+    text-align: center;
+    border-collapse: collapse;
+    vertical-align : middle;
+}
+
+/* table data */
+table td {
+    width: 10rem;
+    height: 4rem;
+    border: 0.3rem solid #F3EEEA;
+    background-color:floralwhite;
+    text-align: center;
+    border-collapse: collapse;
+    vertical-align : middle;
+}
+
+.delete{
+    width: 4rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: #B0A695;
+    box-shadow: 0.2rem 0.2rem 0.2rem gray;
+}
+
+.delete:hover{
+    background-color: #776B5D;
+}
+
+/* 구매하기 / 홈으로 버튼 */
+.twoBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.buyBtn,
+.homeBtn{
+    width: 6rem;
+    height: 2rem;
+    margin: 2rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: #B0A695;
+    box-shadow: 0.2rem 0.2rem 0.2rem gray;
+}
+
+.buyBtn:hover,
+.homeBtn:hover{
+    background-color: #776B5D;
+}
+
+
+/* 구매 모달 팝업 */
+.buyModal{
+    flex-direction: row;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70rem;
+    height: 50rem;
+    border-radius: 1rem;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll; 
+}
+
+.modalItem{
+    display: flex;
+    margin-top: 3rem;
+    margin-left: 5rem;
+    flex-wrap: wrap;
+}
+
+.buyItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1rem;
+    margin: 1rem;
+    background-color: white;
+    flex-wrap: wrap;
+}
+
+.allPay{
+    margin-left: 5rem;
+}
+
+.buy{
+    display: flex;
+    width: 6rem;
+    height: 2rem;
+    margin: 5rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: #B0A695;
+    text-align: center;
+    box-shadow: 0.2rem 0.2rem 0.2rem gray;
+}
+
+.buy:hover{
+    background-color: #776B5D;
+}
+
+.buyItem img{
+    width: 9rem;
+    height: 12rem;
+    
+}
+
+.buyModalClose{
+    display: none;
+}
+
+.buyModalOpen{
+    display: block;
+}
+
+.modalClose{
+    float: right;
+    margin: 1rem;
+    border: 0;
+    background-color: transparent;
+}
+
+.modalClose:hover{
+    color: red;
+}

@@ -9,7 +9,6 @@ body{
     font-style: normal;
 }
 
-
 /* header */
 header{
     display: flex;
@@ -23,10 +22,22 @@ header{
     background-color: #EBE3D5;
 }
 
+.home,
+.sidebarBtn{
+    border: none;
+    background-color: transparent;
+}
+
 .fa-globe,
 .fa-bars {
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.fa-globe:hover,
+.fa-bars:hover{
+    color:#B0A695;
 }
 
 h1{
@@ -35,7 +46,7 @@ h1{
 
 
 /* nav */
-nav {
+.nav {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -56,11 +67,65 @@ nav {
     text-align: center;
 }
 
-li {
+.nav_button {
     display: block;
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    border: 0;
+    background-color: #EBE3D5;
+}
+
+.nav_button:hover{
+    background-color: #F3EEEA;
+}
+
+/* sideBar */
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    width: 20rem;
+    height: 100%;
+    z-index: 1;
+    background-color: #D1BB9E;
+}
+
+.closeBtn {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    border: none;
+    background-color: transparent;
+    color: #776B5D;
+}
+
+.closeBtn:hover {
+    color:#B0A695;
+}
+
+.sideBarOpen {
+    right: 0rem;
+    transition: right 0.5s ease-in;
+}
+
+.sideBarClose {
+    right: -20rem;
+    transition: right 0.5s ease-in;
+}
+
+.menuList{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border: 0;
+    background-color: #D1BB9E;
+}
+
+.menuList:hover{
     background-color: #EBE3D5;
 }
 
@@ -84,12 +149,21 @@ h2{
     padding-left: 1rem;
 }
 
-.product_layout{
+.section {
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    scroll-margin-top: 5rem;
+}
+
+.item_layout{
     display: flex;
     flex-wrap: wrap;
 }
 
-.product{
+.item{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,13 +173,22 @@ h2{
     line-height: 1.5rem;
 }
 
-.product_img{
+.item img{
     display: flex;
     width: 12rem;
     height: 16rem;
     margin: 1rem;
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
+}
+
+.fa-heart{
+    border: none;
+    background-color: transparent;
+}
+
+.fa-heart:hover{
+    color:red;
 }
 
 /* footer */

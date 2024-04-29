@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cartstyle.css" />
     <title>신지의 먹킷리스트</title>
     <script src="https://kit.fontawesome.com/a547149653.js" crossorigin="anonymous"></script>
     <!-- <style>
@@ -21,7 +21,7 @@
         <button class="sidebarBtn" type="button">
             <i class="fa-solid fa-bars"></i>
         </button>
-        
+
     <!-- 사이드바 -->
     <nav class="sideBar sideBarClose">
         <button class="closeBtn">
@@ -30,25 +30,45 @@
         <button class="menuList" onclick="location.href='#'" type="button">관심 상품 목록</button>
         <button class="menuList" onclick="location.href='#'" type="button">관리자 페이지</button>
         <button class="menuList" onclick="location.href='./cart.html'" type="button">장바구니</button>
-      </nav>
+    </nav>
     </header>
 
-    <nav class="nav">
-        <h2 class="nav_title">먹킷리스트</h2>
-        <button class="nav_button nav_all" type="button" >전체</button>
-        <button class="nav_button nav_meal" type="button">식사</button>
-        <button class="nav_button nav_dessert" type="button">디저트</button>
-        <button class="nav_button nav_drink" type="button">음료</button>
-    </nav>
 
+    <main>
+        <!-- 테이블 -->
+        <div class="cart">
+            <table class="table">
+                <tr>
+                    <th scope="col">
+                        check
+                        <input type="checkbox" class="allCheckbox">
+                    </th>
+                    <th scope="col" colspan="2">상품 정보</th>
+                    <th scope="col">상품 금액</th>
+                    <th scope="col">카테고리</th>
+                    <th scope="col">비고</th>
+                </tr>
+            </table> 
+        </div>
+    
+        <div class="twoBtn">
+            <button class="buyBtn">구매하기</button>
+            <button class="homeBtn" onclick="location.href='./index.html'" type="button">홈으로</button>
+        </div>
 
-    <main class = "main">
-        <section class="section"></section>
-        
+        <section class="buyModal buyModalClose">
+            <button class="modalClose" type="button">
+                <i class="fa-solid fa-x"></i>
+            </button>
+            <section class="modalItem"></section>
+            <section class="allPay"></section>
+            <button class="buy" type="button">
+                구매
+            </button>
+        </section>
+
     </main>
-    <footer>
-        <h2>새싹 웨비 파이팅</h2>
-    </footer>
-    <script src="index.js" type="module"></script>
+
+    <script src="cart.js" type="module"></script>
 </body>
 </html> 
