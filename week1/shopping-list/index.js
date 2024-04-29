@@ -57,16 +57,19 @@ navBtnDessert.addEventListener("click", () => {filterItem("dessert")});
 navBtnDrink.addEventListener("click", () => {filterItem("drink")});
 
 
-// 사이드바
-sideBtn.addEventListener("click", () => {
-    sideBar.classList.remove("sideBarClose");  
+// 사이드바 
+const openSideBar = () => {
+    sideBar.classList.remove("sideBarClose"); 
     sideBar.classList.add("sideBarOpen");
-});
+}
 
-closeBtn.addEventListener("click", () => {
+const closeSideBar = () => {
     sideBar.classList.remove("sideBarOpen");
     sideBar.classList.add("sideBarClose");
-});
+}
+
+sideBtn.addEventListener("click", openSideBar);
+closeBtn.addEventListener("click", closeSideBar);
 
 // localStorage에 추가
 let itemCart = JSON.parse(localStorage.getItem('cartitems')) || []; 

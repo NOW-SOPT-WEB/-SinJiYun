@@ -20,15 +20,18 @@ const allPay = document.querySelector(".allPay");
 const modalBuyButton = document.querySelector(".buy");
 
 // 사이드바 
-sideBtn.addEventListener("click", () => {
+const openSideBar = () => {
     sideBar.classList.remove("sideBarClose"); 
     sideBar.classList.add("sideBarOpen");
-});
+}
 
-closeBtn.addEventListener("click", () => {
+const closeSideBar = () => {
     sideBar.classList.remove("sideBarOpen");
     sideBar.classList.add("sideBarClose");
-});
+}
+
+sideBtn.addEventListener("click", openSideBar);
+closeBtn.addEventListener("click", closeSideBar);
 
 //  장바구니 table
 let cartItemCard = cartItems.map(item => {
@@ -67,8 +70,10 @@ deleteBtns.forEach((deleteBtn, index) => {
 // 전체 체크박스
 const allCheckbox = document.querySelector(".allCheckbox");
 
+let checkedItem = []
+
 function selectAll(selectAll)  {
-    let checkedItem = []
+
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
     checkboxes.forEach((checkBox) => {
@@ -127,7 +132,7 @@ buyModalClose.addEventListener("click", () => {
 let pay = 0
 
 // 모달에서 구매 버튼
-modalBuyButton.addEventListener("click", event => {
+modalBuyButton.addEventListener("click", () => {
     
     // alert
     const confirmed = confirm(`주문완료`);
