@@ -74,7 +74,8 @@ closeBtn.addEventListener("click", closeSideBar);
 // localStorage에 추가
 let itemCart = JSON.parse(localStorage.getItem('cartitems')) || []; 
 
-itemSection.addEventListener("click", event => {
+//  장바구니에 아이템 추가
+const addItemCart = () => {
     const evTarget = event.target;
     if (evTarget.classList.contains("item")){
 
@@ -92,4 +93,7 @@ itemSection.addEventListener("click", event => {
         } else {
         }
     }
-});
+}
+
+// 아이템 추가
+itemSection.addEventListener("click", addItemCart);
