@@ -64,9 +64,6 @@ deleteBtns.forEach((deleteBtn, index) => {
     });
 });
 
-// 체크박스
-// 체크될 때마다 새로운 로컬스토리지에 옮기기 -> 체크 취소하면 지우기 -> 체크된 아이템만 모달 로드... 가능할까? 너무 비효율적인데
-
 // 전체 체크박스
 const allCheckbox = document.querySelector(".allCheckbox");
 
