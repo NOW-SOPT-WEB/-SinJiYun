@@ -59,7 +59,7 @@ navBtnDrink.addEventListener("click", () => {filterItem("drink")});
 
 // 사이드바
 sideBtn.addEventListener("click", () => {
-    sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
+    sideBar.classList.remove("sideBarClose");  
     sideBar.classList.add("sideBarOpen");
 });
 

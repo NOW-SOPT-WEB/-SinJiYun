@@ -21,7 +21,7 @@ const modalBuyButton = document.querySelector(".buy");
 
 // 사이드바 
 sideBtn.addEventListener("click", () => {
-    sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
+    sideBar.classList.remove("sideBarClose"); 
     sideBar.classList.add("sideBarOpen");
 });
 
@@ -50,6 +50,8 @@ tableClass.innerHTML += cartItemCard.join('');
 const deleteBtns = document.querySelectorAll('.delete');
 
 // 삭제
+
+
 deleteBtns.forEach((deleteBtn, index) => {
     deleteBtn.addEventListener('click', () => {
         cartItems.splice(index, 1); 
@@ -63,20 +65,19 @@ deleteBtns.forEach((deleteBtn, index) => {
 // 체크될 때마다 새로운 로컬스토리지에 옮기기 -> 체크 취소하면 지우기 -> 체크된 아이템만 모달 로드... 가능할까? 너무 비효율적인데
 
 // 전체 체크박스
-
-let checkedItem = []
 const allCheckbox = document.querySelector(".allCheckbox");
 
-function selectAll()  {
+function selectAll(selectAll)  {
+    let checkedItem = []
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    
+
     checkboxes.forEach((checkBox) => {
-        checkBox.checked = selectAll.checked
+        checkBox.checked = allCheckbox.checked
     })
 }
 
     allCheckbox.addEventListener("click", () => {
-    selectAll();
+    selectAll(this);
     checkedItem = cartItems;
 });
 
