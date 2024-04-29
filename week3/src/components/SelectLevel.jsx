@@ -1,13 +1,33 @@
+import { useState } from  "react";
 import styled from 'styled-components';
 
 const SelectLevel = () => {
+    let level = ['Easy', 'Normal', 'Hard'];
+
+    let [btnActive, setBtnActive] = useState("");
+
+    const toggleActive = (e) => {
+        setBtnActive(() => {
+        return e.target.value;
+        });
+    };
+
+
     return(
         <SelectLevelLayout>
-            <EasyBtn>Easy</EasyBtn>
-            <NormalBtn>Normal</NormalBtn>
-            <HardBtn>Hard</HardBtn>
+            {level.map((item, idx) => {
+                return (
+                    <>
+                    <LevelBtn 
+                    value={idx}
+                    className={"btn" + (idx == btnActive ? " active" : "")}
+                    onClick={toggleActive}>
+                        {item}
+                    </LevelBtn>
+                    </>
+                );
+            })}
         </SelectLevelLayout>
-        
     )
 }
 
@@ -20,8 +40,7 @@ const SelectLevelLayout = styled.div`
     background-color: ${({ theme }) => theme.colors.KBOLightBlue};
     padding: 1rem;
 `
-
-const EasyBtn = styled.button`
+const LevelBtn = styled.button`
     margin: 1rem;
     font-family: ${({ theme }) => theme.fonts.bold};
     font-size: 1.5rem;
@@ -30,30 +49,9 @@ const EasyBtn = styled.button`
     width: 8rem;
     border: none;
     border-radius: 1rem;
-    background-color: ${({ theme }) => theme.colors.KBOGold};
-`
+    background-color: ${({ theme }) => theme.colors.KBOSilver};
 
-const NormalBtn = styled.button`
-    margin: 1rem;
-    font-family: ${({ theme }) => theme.fonts.bold};
-    font-size: 1.5rem;
-    color: white;
-    height: 3rem;
-    width: 8rem;
-    border: none;
-    border-radius: 1rem;
-    background-color: ${({ theme }) => theme.colors.KBOGold};
-`
-
-const HardBtn = styled.button`
-    margin: 1rem;
-    font-family: ${({ theme }) => theme.fonts.bold};
-    font-size: 1.5rem;
-    color: white;
-    height: 3rem;
-    width: 8rem;
-    border: none;
-    border-radius: 1rem;
-    background-color: ${({ theme }) => theme.colors.KBOGold};
-    
+    &.active {
+        background-color: ${({ theme }) => theme.colors.KBOGold};
+    }
 `

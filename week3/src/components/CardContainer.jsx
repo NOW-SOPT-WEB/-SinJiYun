@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CARDS from '../constants/card';
+// import CARDS from '../constants/card';
 
 const CardContainer = () => {
 
