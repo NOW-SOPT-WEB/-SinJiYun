@@ -12,10 +12,11 @@ export default function Card({ data, handleClick }) {
     return (
         <CardFrame onClick={() => status || handleCard(idx)}>
           <CardPiece checked={status}>
-            <CardFront />
-            <CardBack>
-                <img src = {img} width='120' height='160' />
+            <CardBack><img src='src/assets/images/KBO.png' width='100%' height='100%'/>
             </CardBack>
+            <CardFront>
+                <img src = {img} width='100%' height='100%' />
+            </CardFront>
           </CardPiece>
         </CardFrame>
       )
@@ -45,12 +46,11 @@ const CardFace = styled.div`
     height: 12rem;
 `
 
-const CardFront = styled(CardFace)`
+const CardBack = styled(CardFace)`
     background: violet;
 `
 
-const CardBack = styled(CardFace)`
-    padding: 20px 0;
+const CardFront = styled(CardFace)`
     text-align: center;
     background: peru;
     transform: rotateY(180deg);

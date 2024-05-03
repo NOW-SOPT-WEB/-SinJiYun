@@ -35,15 +35,16 @@ export default function CardContainer({updateScore}) {
           if (clicked.length === 2) {
             let a = MixedCardList.find((e) => e.idx === clicked[0]).id
             let b = MixedCardList.find((e) => e.idx === clicked[1]).id
-            // 두 카드가 같지 않은 경우
+            
+            // 다른 경우 status를 false로 유지
             if (a !== b) {
               MixedCardList.forEach((e) => {
                 if (e.idx === clicked[0] || e.idx === clicked[1]) {
                   e.status = false
-                  // updateScore((currentScore) => currentScore - 1);
                 }
               })
             } else{
+              // 같은 경우 점수 올리기
               updateScore((currentScore) => currentScore + 1);
             }
             // 선택 끝나면 배열 비우기
@@ -83,7 +84,6 @@ export default function CardContainer({updateScore}) {
         
     )
 }
-
 
 const GameLayout = styled.div`
     display: flex;

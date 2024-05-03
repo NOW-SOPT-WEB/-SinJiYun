@@ -11,9 +11,20 @@ export default function ClearModal({ handleFinished }){
     )
 }
 
-const ModalLayout = styled.div`;
+const ModalLayout = styled.div`
+    position:absolute;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+
+    width: 20rem;
+    height:40rem;
+
+    background-color: white;
+    z-index: 1;
 `
 
 const restartBtn = styled.button`
+    background-color: ${({ theme }) => theme.colors.KBOGold };
 
 `
