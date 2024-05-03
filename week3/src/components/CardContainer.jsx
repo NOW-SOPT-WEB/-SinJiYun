@@ -13,7 +13,7 @@ const CardContainer = () => {
 
     // 게임이 끝나면 재배열 (finish 값이 변경되는 경우)
     const MixedCardList = useMemo(() => MixedCardDeck(), [finished])
-
+  
     // 인덱스로 카드 선택
     const handleClick = (idx) => {
         // 선택한 카드 뒤집기
