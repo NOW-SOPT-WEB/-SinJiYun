@@ -5,8 +5,8 @@ import Card from "./Card";
 import ClearModal from "./ClearModal";
 import { LEVEL } from "../constants/Level";
 
-
 export default function CardContainer({updateScore}) {
+
     // // 게임이 끝났는지 저장
     const [finished, setFinished] = useState(false)
     // 현재 선택한 카드 데이터 저장하는 배열
@@ -18,7 +18,6 @@ export default function CardContainer({updateScore}) {
     // 인덱스로 카드 선택
     const handleClick = (idx) => {
         // 선택한 카드 뒤집기
-        console.log(idx)
         MixedCardList.some((e) => {
             if (e.idx === idx) {
             e.status = !e.status
@@ -55,7 +54,6 @@ export default function CardContainer({updateScore}) {
     
       useEffect(() => {
         if (MixedCardList.every((e) => e.status === true)) {
-          console.log("모두 다 맞춘 경우")
           setFinished(true)
         }
       }, [clicked])
@@ -98,12 +96,9 @@ const CardsLayout = styled.section`
     grid-template-columns: repeat(8, 1fr);
 `
 
-function MixedCardDeck(){
-  // 카드 개수가 자꾸 두 배가 되어서 길이 고정
-  let cardDeck = Array.from({ length: 0 }, () => {
-    return {}
-  })
 
+function MixedCardDeck(){
+    let cardDeck = [];
     let randomNumberArr = [];
 
     // 여기는 난이도 개수만큼
@@ -124,7 +119,6 @@ function MixedCardDeck(){
 
     // 카드 섞기
     shuffle(randomNumberArr);
-    console.log(`카드 섞기${randomNumberArr}`);
 
     // 섞은 값으로 카드 세팅
     for (let i = 0; i < LEVEL.EASY * 2; i++) {
@@ -135,10 +129,7 @@ function MixedCardDeck(){
             status: false,
             idx: i
         });
-        console.log(cardDeck.length);
     }
-    // 카드 섞이는지 확인
-    console.log(cardDeck);
 
     return cardDeck;
 }
