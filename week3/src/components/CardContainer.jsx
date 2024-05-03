@@ -5,7 +5,7 @@ import Card from "./Card";
 import ClearModal from "./ClearModal";
 
 
-const CardContainer = () => {
+export default function CardContainer({updateScore}) {
     // 게임이 끝났는지 저장
     const [finished, setFinished] = useState(false)
     // 현재 선택한 카드 데이터 저장하는 배열
@@ -13,7 +13,7 @@ const CardContainer = () => {
 
     // 게임이 끝나면 재배열 (finish 값이 변경되는 경우)
     const MixedCardList = useMemo(() => MixedCardDeck(), [finished])
-  
+
     // 인덱스로 카드 선택
     const handleClick = (idx) => {
         // 선택한 카드 뒤집기
@@ -39,9 +39,13 @@ const CardContainer = () => {
               MixedCardList.forEach((e) => {
                 if (e.idx === clicked[0] || e.idx === clicked[1]) {
                   e.status = false
+                  // updateScore((currentScore) => currentScore - 1);
                 }
               })
+            } else{
+              updateScore((currentScore) => currentScore + 1);
             }
+            // 선택 끝나면 배열 비우기
             setClicked(Array.from([]))
           }
         }, 700)
@@ -82,7 +86,6 @@ const CardContainer = () => {
     )
 }
 
-export default CardContainer;
 
 const GameLayout = styled.div`
     display: flex;

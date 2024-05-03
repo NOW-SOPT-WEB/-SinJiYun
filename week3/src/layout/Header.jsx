@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Header = () => {
+export default function Header({ score }) {
     return(
         <HeaderLayout>
             <TitleLayout>
@@ -11,13 +11,12 @@ const Header = () => {
                     Reset
                 </ResetBtn>
             </TitleLayout>
-            <Score>점수 들어갈 자리</Score>
+            <Score>{score}</Score>
         </HeaderLayout>
         
     )
 }
 
-export default Header;
 
 const HeaderLayout = styled.div`
     background-color: ${({ theme }) => theme.colors.KBOBlue};
