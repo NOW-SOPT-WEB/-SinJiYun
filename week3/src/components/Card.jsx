@@ -2,36 +2,58 @@ import styled from 'styled-components';
 // import theme from "./theme"
 
 
-export default function Card({ data }) {
+export default function Card({ data, handleClick }) {
     const { id, name, img, status, idx } = data
+
+    const handleCard = (idx) => {
+        if (handleClick) handleClick(idx)
+      }
     
-        return (
-            <CardLayout>
-            <ShowCard checked={status}>
-            <CardBack />
-            <CardFront>
-                <img src={img} />
-            </CardFront>
-            </ShowCard>
-            </CardLayout>
-        )
+    return (
+        <CardFrame onClick={() => status || handleCard(idx)}>
+          <CardPiece checked={status}>
+            <CardFront />
+            <CardBack>
+                {/* <img src = {img}/> */}
+                {name}
+            </CardBack>
+          </CardPiece>
+        </CardFrame>
+      )
     }
-
-const CardLayout = styled.div`
-    display: flex;
     
+const CardFrame = styled.div`
+    display: inline-block;
+    height: 150px;
+    perspective: 600px;
+    width: 9rem;
+    height: 12rem;
 `
 
-const ShowCard = styled.section`
-    
+const CardPiece = styled.div`
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    ${({ checked }) => (checked ? `transform: rotateY(180deg)` : null)}
 `
-const CardFront = styled.div`
-    display: flex;
-    width: 12rem;
-    height: 16rem;
-    margin: 0.5rem;
-    
+
+const CardFace = styled.div`
+    position: absolute;
+    /* backface-visibility: hidden; */
 `
-const CardBack = styled.div`
-    
+
+const CardFront = styled(CardFace)`
+    background: violet;
 `
+
+const CardBack = styled(CardFace)`
+    padding: 20px 0;
+    text-align: center;
+    background: peru;
+    transform: rotateY(180deg);
+    width: 9rem;
+    height: 12rem;
+`
+    
