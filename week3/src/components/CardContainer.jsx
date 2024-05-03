@@ -7,7 +7,7 @@ import { LEVEL } from "../constants/Level";
 
 
 export default function CardContainer({updateScore}) {
-    // 게임이 끝났는지 저장
+    // // 게임이 끝났는지 저장
     const [finished, setFinished] = useState(false)
     // 현재 선택한 카드 데이터 저장하는 배열
     const [clicked, setClicked] = useState(Array.from([]))
@@ -61,16 +61,13 @@ export default function CardContainer({updateScore}) {
     
       const handleFinished = () => {
         setFinished(false)
+        updateScore(0);
       }
 
     return(
         <GameLayout>
             {finished && (
-            <ClearModal>
-              <span>다시 시작하시겠습니까?</span>
-              <button type="button" onClick={handleFinished}>
-                다시 시작
-              </button>
+            <ClearModal handleFinished={handleFinished} >
             </ClearModal>
       )}
             <CardsLayout>

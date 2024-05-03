@@ -10,6 +10,7 @@ export default function MainPage(){
         setScore(newScore);
     };
 
+
     return(
         <>
         <Header score={score}/>
