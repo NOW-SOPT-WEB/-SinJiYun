@@ -74,7 +74,7 @@ export default function CardContainer({updateScore}) {
                 {MixedCardList.map((e) => (
                 <Card
                     data={e}
-                    key={`${e.idx}-${e.name}`}
+                    key={e.idx}
                     handleClick={clicked.length < 2 ? handleClick : null}
                 />
                 ))}

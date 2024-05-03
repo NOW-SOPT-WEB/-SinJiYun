@@ -14,8 +14,7 @@ export default function Card({ data, handleClick }) {
           <CardPiece checked={status}>
             <CardFront />
             <CardBack>
-                {/* <img src = {img}/> */}
-                {name}
+                <img src = {img} width='120' height='160' />
             </CardBack>
           </CardPiece>
         </CardFrame>
@@ -41,7 +40,9 @@ const CardPiece = styled.div`
 
 const CardFace = styled.div`
     position: absolute;
-    /* backface-visibility: hidden; */
+    backface-visibility: hidden;
+    width: 9rem;
+    height: 12rem;
 `
 
 const CardFront = styled(CardFace)`
@@ -53,7 +54,5 @@ const CardBack = styled(CardFace)`
     text-align: center;
     background: peru;
     transform: rotateY(180deg);
-    width: 9rem;
-    height: 12rem;
 `
     
