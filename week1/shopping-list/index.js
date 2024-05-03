@@ -21,7 +21,7 @@ const allItem = function() {
         <article class="item">
             <img src="${item.image}" alt="${item.title}">
             <h4>${item.title}</h4>
-            <p>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원</p>
+            <p>${Number(item.price).toLocaleString('ko-KR')}원</p>
             <button class="fa-solid fa-heart" type="button"></button>
         </article>
         `;
@@ -57,23 +57,25 @@ navBtnDessert.addEventListener("click", () => {filterItem("dessert")});
 navBtnDrink.addEventListener("click", () => {filterItem("drink")});
 
 
-// 사이드바
-sideBtn.addEventListener("click", () => {
-    sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
+// 사이드바 
+const openSideBar = () => {
+    sideBar.classList.remove("sideBarClose"); 
     sideBar.classList.add("sideBarOpen");
-    console.log("사이드바 열음");
-});
+}
 
-closeBtn.addEventListener("click", () => {
+const closeSideBar = () => {
     sideBar.classList.remove("sideBarOpen");
     sideBar.classList.add("sideBarClose");
-    console.log("사이드바 닫음");
-});
+}
+
+sideBtn.addEventListener("click", openSideBar);
+closeBtn.addEventListener("click", closeSideBar);
 
 // localStorage에 추가
 let itemCart = JSON.parse(localStorage.getItem('cartitems')) || []; 
 
-itemSection.addEventListener("click", event => {
+//  장바구니에 아이템 추가
+const addItemCart = () => {
     const evTarget = event.target;
     if (evTarget.classList.contains("item")){
 
@@ -88,9 +90,10 @@ itemSection.addEventListener("click", event => {
         if (confirmed) {
             itemCart.push(itemInfo);
             localStorage.setItem('cartitems', JSON.stringify(itemCart));
-            console.log(`${itemTitle} 장바구니 이동`);
         } else {
-            console.log("취소");
         }
     }
-});
+}
+
+// 아이템 추가
+itemSection.addEventListener("click", addItemCart);

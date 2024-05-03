@@ -20,17 +20,18 @@ const allPay = document.querySelector(".allPay");
 const modalBuyButton = document.querySelector(".buy");
 
 // 사이드바 
-sideBtn.addEventListener("click", () => {
-    sideBar.classList.remove("sideBarClose");   // 먼저 삭제해야 함!
+const openSideBar = () => {
+    sideBar.classList.remove("sideBarClose"); 
     sideBar.classList.add("sideBarOpen");
-    console.log("사이드바 열음");
-});
+}
 
-closeBtn.addEventListener("click", () => {
+const closeSideBar = () => {
     sideBar.classList.remove("sideBarOpen");
     sideBar.classList.add("sideBarClose");
-    console.log("사이드바 닫음");
-});
+}
+
+sideBtn.addEventListener("click", openSideBar);
+closeBtn.addEventListener("click", closeSideBar);
 
 //  장바구니 table
 let cartItemCard = cartItems.map(item => {
@@ -52,6 +53,8 @@ tableClass.innerHTML += cartItemCard.join('');
 const deleteBtns = document.querySelectorAll('.delete');
 
 // 삭제
+
+
 deleteBtns.forEach((deleteBtn, index) => {
     deleteBtn.addEventListener('click', () => {
         cartItems.splice(index, 1); 
@@ -61,16 +64,15 @@ deleteBtns.forEach((deleteBtn, index) => {
     });
 });
 
-// 체크박스
-// 체크될 때마다 새로운 로컬스토리지에 옮기기 -> 체크 취소하면 지우기 -> 체크된 아이템만 모달 로드... 가능할까? 너무 비효율적인데
-
 // 전체 체크박스
+const allCheckbox = document.querySelector(".allCheckbox");
 
 let checkedItem = []
-const allCheckbox = document.querySelector(".allCheckbox");
+
 function selectAll(selectAll)  {
+
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    
+
     checkboxes.forEach((checkBox) => {
         checkBox.checked = allCheckbox.checked
     })
@@ -78,7 +80,6 @@ function selectAll(selectAll)  {
 
     allCheckbox.addEventListener("click", () => {
     selectAll(this);
-    console.log("전체 체크");
     checkedItem = cartItems;
 });
 
@@ -95,7 +96,6 @@ checkBox.forEach((checkbox, index) => {
                 checkedItem.splice(removedIndex, 1);
             }
         }
-        console.log(checkedItem);
     });
 });
 
@@ -103,24 +103,20 @@ checkBox.forEach((checkbox, index) => {
 buyBtn.addEventListener("click", () => {
     buyModal.classList.remove("buyModalClose");  
     buyModal.classList.add("buyModalOpen");
-    console.log("모달 열음");
-    // buyItems();
 
     let buyItems = checkedItem.map(item => {
-        console.log(checkedItem);
         pay += Number(item.price);
-        console.log(pay);
         return `
         <article class="buyItem">
             <img src="${item.image}" alt="${item.title}">
             <h4>${item.title}</h4>
-            <p>${item.price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원</p>
+            <p>${Number(item.price).toLocaleString('ko-KR')}원</p>
         </article>
         `;
     });
     
     buyItem.innerHTML += buyItems.join('');
-    allPay.innerHTML = `총 금액 : ${String(pay).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}원`;
+    allPay.innerHTML = `총 금액 : ${Number(item.price).toLocaleString('ko-KR')}원`;
     
 });
 
@@ -128,13 +124,12 @@ buyBtn.addEventListener("click", () => {
 buyModalClose.addEventListener("click", () => {
     buyModal.classList.remove("buyModalOpen");   
     buyModal.classList.add("buyModalClose");
-    console.log("모달 닫음");
 });
 
 let pay = 0
 
 // 모달에서 구매 버튼
-modalBuyButton.addEventListener("click", event => {
+modalBuyButton.addEventListener("click", () => {
     
     // alert
     const confirmed = confirm(`주문완료`);
@@ -142,17 +137,14 @@ modalBuyButton.addEventListener("click", event => {
     // 주문 완료 시 모달 닫기
     buyModal.classList.remove("buyModalOpen");   
     buyModal.classList.add("buyModalClose");
-    console.log("모달 닫음");
 
             let deleteCheckItem = checkedItem.map(checkItem =>{
-                console.log(checkItem.title);
                 cartItems = cartItems.filter(function(item) {
                     return item !== checkedItem;
                 });
                 
             
             });
-            
             localStorage.setItem('cartitems', JSON.stringify(cartItems));
 
 });
