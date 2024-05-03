@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CARDS from '../constants/card';
 import Card from "./Card";
 import ClearModal from "./ClearModal";
+import { LEVEL } from "../constants/Level";
 
 
 export default function CardContainer({updateScore}) {
@@ -73,7 +74,7 @@ export default function CardContainer({updateScore}) {
             </ClearModal>
       )}
             <CardsLayout>
-                {MixedCardList.map((e, i) => (
+                {MixedCardList.map((e) => (
                 <Card
                     data={e}
                     key={`${e.idx}-${e.name}`}
@@ -108,7 +109,7 @@ function MixedCardDeck(){
     let randomNumberArr = [];
 
     // 여기는 난이도 개수만큼
-    for (let i = 0; i < 10 / 2; i++) {
+    for (let i = 0; i < LEVEL.EASY; i++) {
         // 랜덤 값 뽑기
         let randomNumber = getRandom(10, 0);    // 이미지 개수만큼
     
@@ -128,7 +129,7 @@ function MixedCardDeck(){
     console.log(`카드 섞기${randomNumberArr}`);
 
     // 섞은 값으로 카드 세팅
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < LEVEL.EASY * 2; i++) {
         cardDeck.push({
             id: CARDS[randomNumberArr[i]].id,
             name: CARDS[randomNumberArr[i]].name, 

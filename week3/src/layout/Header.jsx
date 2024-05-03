@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { LEVEL } from "../constants/Level";
 
 export default function Header({ score }) {
     return(
@@ -11,7 +12,7 @@ export default function Header({ score }) {
                     Reset
                 </ResetBtn>
             </TitleLayout>
-            <Score>{score}</Score>
+            <Score>{score}/{LEVEL.EASY}</Score>
         </HeaderLayout>
         
     )

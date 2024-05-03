@@ -14,7 +14,7 @@ export default function MainPage(){
         <>
         <Header score={score}/>
         <SelectLevel />
-        <CardContainer updateScore={updateScore} score={score}/>
+        <CardContainer updateScore={updateScore} />
         </>
     )
 }
