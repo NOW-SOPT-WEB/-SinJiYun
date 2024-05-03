@@ -10,7 +10,7 @@ export default function Card({ data, handleClick }) {
       }
     
     return (
-        <CardFrame onClick={() => status || handleCard(idx)}>
+        <CardLayout onClick={() => status || handleCard(idx)}>
           <CardPiece checked={status}>
             <CardBack><img src='src/assets/images/KBO.png' width='100%' height='100%'/>
             </CardBack>
@@ -18,11 +18,11 @@ export default function Card({ data, handleClick }) {
                 <img src = {img} width='100%' height='100%' />
             </CardFront>
           </CardPiece>
-        </CardFrame>
+        </CardLayout>
       )
     }
     
-const CardFrame = styled.div`
+const CardLayout = styled.div`
     display: inline-block;
     height: 150px;
     perspective: 600px;

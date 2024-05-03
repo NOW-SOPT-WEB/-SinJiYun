@@ -88,6 +88,7 @@ export default function CardContainer({updateScore}) {
 const GameLayout = styled.div`
     display: flex;
     width: 100%;
+    height: 37rem;
     justify-content: center;
     background-color: ${({ theme }) => theme.colors.KBOLightBlue};
 `
