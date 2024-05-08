@@ -7,9 +7,7 @@ const SelectLevel = () => {
     let [btnActive, setBtnActive] = useState("");
 
     const toggleActive = (e) => {
-        setBtnActive(() => {
-        return e.target.value;
-        });
+        setBtnActive(e.target.value);
     };
 
 
@@ -17,15 +15,14 @@ const SelectLevel = () => {
         <SelectLevelLayout>
             {level.map((item, idx) => {
                 return (
-                    <>
                     <LevelBtn 
                     type="button"
+                    key={item}
                     value={idx}
                     className={"btn" + (idx == btnActive ? " active" : "")}
                     onClick={toggleActive}>
                         {item}
                     </LevelBtn>
-                    </>
                 );
             })}
         </SelectLevelLayout>

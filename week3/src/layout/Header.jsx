@@ -9,7 +9,7 @@ export default function Header({ score }) {
                 <h1>KBO 마스코드 짝맞추기</h1>
                 </Title>
                 <ResetBtn
-                type="button">
+                type>
                     Reset
                 </ResetBtn>
             </TitleLayout>
@@ -20,7 +20,7 @@ export default function Header({ score }) {
 }
 
 
-const HeaderLayout = styled.div`
+const HeaderLayout = styled.header`
     background-color: ${({ theme }) => theme.colors.KBOBlue};
 `
 
