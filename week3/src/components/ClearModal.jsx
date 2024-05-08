@@ -9,7 +9,7 @@ export default function ClearModal({ handleFinished }){
             <CommentLayout>
                 {comment}
             </CommentLayout>
-            <RestartBtn onClick={handleFinished} >
+            <RestartBtn type="button" onClick={handleFinished} >
                 다시 시작하기
             </RestartBtn>
         </ModalLayout>

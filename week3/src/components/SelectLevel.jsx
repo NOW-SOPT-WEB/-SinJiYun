@@ -19,6 +19,7 @@ const SelectLevel = () => {
                 return (
                     <>
                     <LevelBtn 
+                    type="button"
                     value={idx}
                     className={"btn" + (idx == btnActive ? " active" : "")}
                     onClick={toggleActive}>

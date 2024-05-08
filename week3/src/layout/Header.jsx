@@ -8,7 +8,8 @@ export default function Header({ score }) {
                 <Title>
                 <h1>KBO 마스코드 짝맞추기</h1>
                 </Title>
-                <ResetBtn>
+                <ResetBtn
+                type="button">
                     Reset
                 </ResetBtn>
             </TitleLayout>
