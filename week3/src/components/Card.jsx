@@ -4,7 +4,7 @@ export default function Card({ data, handleClick }) {
     const { id, name, img, status, idx } = data
 
     const handleCard = (idx) => {
-        if (handleClick) handleClick(idx)
+        handleClick && handleClick(idx)
       }
     
     return (
@@ -22,8 +22,7 @@ export default function Card({ data, handleClick }) {
     
 const CardLayout = styled.div`
     display: inline-block;
-    height: 150px;
-    perspective: 600px;
+    perspective: 15rem;
     width: 9rem;
     height: 12rem;
 `
@@ -34,7 +33,7 @@ const CardPiece = styled.div`
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    ${({ checked }) => (checked ? `transform: rotateY(180deg)` : null)}
+    ${({ checked }) => checked && `transform: rotateY(180deg)`}
 `
 
 const CardFace = styled.div`
@@ -45,12 +44,12 @@ const CardFace = styled.div`
 `
 
 const CardBack = styled(CardFace)`
-    background: violet;
+    width: '100%'; 
+    height:'100%';
 `
 
 const CardFront = styled(CardFace)`
     text-align: center;
-    background: peru;
     transform: rotateY(180deg);
 `
     
