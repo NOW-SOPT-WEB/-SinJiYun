@@ -35,7 +35,7 @@ const Title = styled.div`
     text-align: center;
     font-family: ${({ theme }) => theme.fonts.bold};
     font-size: 3rem;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
 `
 const ResetBtn = styled.button`
     position: fixed;
@@ -44,7 +44,7 @@ const ResetBtn = styled.button`
     background-color: ${({ theme }) => theme.colors.KBORed};
     font-family: ${({ theme }) => theme.fonts.bold};
     font-size: 1.5rem;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     height: 4rem;
     width: 8rem;
     border: none;
@@ -55,5 +55,5 @@ const Score = styled.div`
     padding: 2rem;
     font-family: ${({ theme }) => theme.fonts.bold};
     font-size: 1.5rem;
-    color : white;
+    color : ${({ theme }) => theme.colors.white};
 `

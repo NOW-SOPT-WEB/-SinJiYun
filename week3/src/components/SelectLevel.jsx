@@ -42,7 +42,7 @@ const LevelBtn = styled.button`
     margin: 1rem;
     font-family: ${({ theme }) => theme.fonts.bold};
     font-size: 1.5rem;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     height: 3rem;
     width: 8rem;
     border: none;

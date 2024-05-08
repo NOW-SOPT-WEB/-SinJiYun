@@ -4,6 +4,7 @@ const colors = {
     KBORed: "#f71c24",
     KBOSilver: "#bcbec0",
     KBOGold: "#b3a177",
+    white: "#FFFFFF",
 };
 
 const fonts = {

@@ -35,7 +35,7 @@ const ModalLayout = styled.div`
 const CommentLayout = styled.div`
     margin-top: 2rem;
     font-family: ${({ theme }) => theme.fonts.bold};
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     font-size: 3.5rem;
 
     white-space: pre-line;
