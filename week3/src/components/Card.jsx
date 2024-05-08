@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-// import theme from "./theme"
-
 
 export default function Card({ data, handleClick }) {
     const { id, name, img, status, idx } = data
