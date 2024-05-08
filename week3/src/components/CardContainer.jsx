@@ -10,7 +10,7 @@ export default function CardContainer({updateScore}) {
     // // 게임이 끝났는지 저장
     const [finished, setFinished] = useState(false)
     // 현재 선택한 카드 데이터 저장하는 배열
-    const [clicked, setClicked] = useState(Array.from([]))
+    const [clicked, setClicked] = useState([])
 
     // 게임이 끝나면 재배열 (finish 값이 변경되는 경우)
     const MixedCardList = useMemo(() => MixedCardDeck(), [finished])
@@ -32,11 +32,11 @@ export default function CardContainer({updateScore}) {
       useEffect(() => {
         setTimeout(() => {
           if (clicked.length === 2) {
-            let a = MixedCardList.find((e) => e.idx === clicked[0]).id
-            let b = MixedCardList.find((e) => e.idx === clicked[1]).id
+            let firstCard = MixedCardList.find((e) => e.idx === clicked[0]).id
+            let secondCard = MixedCardList.find((e) => e.idx === clicked[1]).id
             
             // 다른 경우 status를 false로 유지
-            if (a !== b) {
+            if (firstCard !== secondCard) {
               MixedCardList.forEach((e) => {
                 if (e.idx === clicked[0] || e.idx === clicked[1]) {
                   e.status = false
@@ -47,7 +47,7 @@ export default function CardContainer({updateScore}) {
               updateScore((currentScore) => currentScore + 1);
             }
             // 선택 끝나면 배열 비우기
-            setClicked(Array.from([]))
+            setClicked([])
           }
         }, 700)
       }, [clicked])
@@ -74,7 +74,7 @@ export default function CardContainer({updateScore}) {
                 <Card
                     data={e}
                     key={e.idx}
-                    handleClick={clicked.length < 2 ? handleClick : null}
+                    handleClick={clicked.length < 2 && handleClick}
                 />
                 ))}
             </CardsLayout>
@@ -104,7 +104,7 @@ function MixedCardDeck(){
     // 여기는 난이도 개수만큼
     for (let i = 0; i < LEVEL.EASY; i++) {
         // 랜덤 값 뽑기
-        let randomNumber = getRandom(10, 0);    // 이미지 개수만큼
+        let randomNumber = getRandom(CARDS.length - 1);    // 이미지 개수만큼
     
         // 중복 검사
         if (randomNumberArr.indexOf(randomNumber) === -1) {
@@ -135,8 +135,8 @@ function MixedCardDeck(){
 }
 
 // 난수 생성 함수
-function getRandom(max, min) {
-    return parseInt(Math.random() * (max - min)) + min;
+function getRandom(imgCount) {
+  return Math.floor(Math.random() * imgCount);
 }
 
 // 카드 섞는 함수
