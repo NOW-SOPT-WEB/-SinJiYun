@@ -1,7 +1,10 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 function Login() {
+
+  const navigate = useNavigate();
 
   return (
     <LoginWrapper>
@@ -23,7 +26,7 @@ function Login() {
         <LoginBtn type="button">
             로그인
         </LoginBtn>
-        <SignUpBtn type="button">
+        <SignUpBtn type="button" onClick={() => { navigate('/signup'); }}>
             회원가입
         </SignUpBtn>
         </BtnSection>
@@ -45,9 +48,9 @@ const LoginContainer = styled.div`
     flex-direction: column;
     align-items: center;
 
-    width: 40rem;
-    height: 50rem;
-    margin-top: 3rem;
+    width: 35rem;
+    height: 40rem;
+    margin-top: 5rem;
 
     background-color: yellow;
 `
@@ -55,17 +58,16 @@ const LoginContainer = styled.div`
 const LoginTitle = styled.div`
     display: flex;
 
-    margin: 2rem;
+    margin: 5rem;
 
     font-size: 2.5rem;
 `
 
 const IDInputSection = styled.section`
-    
 `
 
 const IDInput = styled.input`
-    
+    margin: 2rem;
 `
 
 const PWInputSection = styled.section`
@@ -73,7 +75,7 @@ const PWInputSection = styled.section`
 `
 
 const PWInput = styled.input`
-    
+    margin: 2rem;
 `
 
 const BtnSection = styled.section`
@@ -81,8 +83,8 @@ const BtnSection = styled.section`
 `
 
 const LoginBtn = styled.button`
-    
+    margin: 2rem;
 `
 const SignUpBtn = styled.button`
-    
+    margin: 2rem;
 `
