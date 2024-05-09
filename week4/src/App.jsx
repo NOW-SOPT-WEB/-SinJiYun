@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import GlobalStyle from "./styles/GlobalStyle";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Router";
 
 function App() {
   return (
@@ -7,7 +9,7 @@ function App() {
       <GlobalStyle />
       <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
 export default App
