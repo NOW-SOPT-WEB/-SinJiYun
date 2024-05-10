@@ -11,6 +11,8 @@ function SignUpPage() {
     const [userName, setUserName] = useState("");
     const [userNum, setUserNum] = useState("");
 
+    let [inputNum, setInputNum] = useState("")
+
     const pwdComment = "비밀번호 형식은 숫자, 영어 알파벳, 특수문자가 \n포함된 8자 이상이어야 합니다.";
 
     const navigate = useNavigate();
@@ -91,7 +93,7 @@ const SignUpWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     height: 60rem;
 
     background-color: ${({ theme }) => theme.colors.BgColor};
@@ -126,7 +128,7 @@ const IDInput = styled.input`
 
 const PWInput = styled.input`
     margin: 2rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
 `
 const NameInput = styled.input`
     margin: 2rem;
@@ -134,7 +136,7 @@ const NameInput = styled.input`
 
 const NumInput = styled.input`
     margin: 2rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
 `
 
 const BtnSection = styled.section`
