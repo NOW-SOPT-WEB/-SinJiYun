@@ -130,6 +130,8 @@ const MyPageWrapper = styled.div`
     justify-content: center;
     align-items: center;
 
+    height: 60rem;
+
     background-color: ${({ theme }) => theme.colors.BgColor};
 `
 
@@ -140,7 +142,6 @@ const MyPageContainer = styled.div`
 
     width: 35rem;
     height: 50rem;
-    margin-top: 5rem;
 
     background-color: ${({ theme }) => theme.colors.LightBlue1};
 `
@@ -153,7 +154,7 @@ const MyPageTitle = styled.div`
     font-size: 2.5rem;
 `
 const InfoSection = styled.section`
-    
+    margin: 1rem;
 `
 
 const DropdownBtn = styled.button`
