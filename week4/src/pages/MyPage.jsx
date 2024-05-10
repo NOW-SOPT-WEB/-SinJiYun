@@ -9,6 +9,10 @@ function MyPage() {
     const [userData, setUserData] = useState([]);
     const [toggleOpen, setToggleOpen] = useState(false);
 
+    const [userPwd, setUserPwd] = useState("");
+    const [newPwd, setNewPwd] = useState("");
+    const [checkPwd, setCheckPwd] = useState("");
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,7 +23,7 @@ function MyPage() {
                 {
                     headers: {
                         memberId: location
-                    }  
+                    }
                 });
                 setUserData(response.data.data);
                 return response.data.data;
@@ -29,8 +33,37 @@ function MyPage() {
                 }
         }
     getUserData();
-    }, [location]
-);
+    }, [location]);
+
+    const patchPwdData = async() => {
+        
+        if (!userPwd || !newPwd || !checkPwd) {
+            alert('모든 칸을 입력해 주세요!');
+            return;
+        }
+
+        try {
+            const response = await axios.patch(
+            `${import.meta.env.VITE_SERVER_URL}/member/password`,
+            {
+                previousPassword : userPwd,
+                newPassword : newPwd, 
+                newPasswordVerification : checkPwd,
+            },
+            {
+                headers: {
+                    memberId: location
+                }
+            }
+        );
+            
+            alert(`비밀번호가 ${newPwd}로 변경되었습니다!`);
+            return response.data.data;
+            } catch (err) {
+                console.log(err);
+                alert(err.response.data.message);
+            }
+    }
 
 
     return (
@@ -54,7 +87,30 @@ function MyPage() {
                     }
                 </DropdownBtn>
                 <Dropdown isOpen={toggleOpen}>
-                    테스트용
+                <PWInputSection>
+                    기존 비밀번호
+                    <PWInput 
+                    type="text"
+                    value={userPwd}
+                    onChange={(e) => setUserPwd(e.target.value)} />
+                </PWInputSection>    
+                <PWInputSection>
+                    새 비밀번호
+                    <NewPWInput 
+                    type="text"
+                    value={newPwd}
+                    onChange={(e) => setNewPwd(e.target.value)}/>
+                </PWInputSection>
+                <PWInputSection>
+                    비밀번호 확인
+                    <CheckPWInput 
+                    type="text"
+                    value={checkPwd}
+                    onChange={(e) => setCheckPwd(e.target.value)}/>
+                </PWInputSection>
+                <ChangeBtn type="button" onClick={patchPwdData}>
+                    비밀번호 변경
+                </ChangeBtn>
                 </Dropdown>
                 <MainBtn type="button" onClick={() => { navigate(`/main/${location}`); }}>
                     홈으로
@@ -96,6 +152,25 @@ const InfoSection = styled.section`
 `
 
 const DropdownBtn = styled.button`
+    display: flex;
+
+    margin-top: 2rem;
+`
+const PWInputSection = styled.section`
+    
+`
+
+const PWInput = styled.input`
+    margin: 1rem;
+`
+const NewPWInput = styled.input`
+    margin: 1rem;
+`
+const CheckPWInput = styled.input`
+    margin: 1rem;
+`
+
+const ChangeBtn = styled.button`
     
 `
 
