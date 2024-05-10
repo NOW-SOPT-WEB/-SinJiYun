@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import Dropdown from '../Containers/Dropdown';
+import Dropdown from '../Components/Dropdown';
 
 function MyPage() {
     const { location } = useParams();

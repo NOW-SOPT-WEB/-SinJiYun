@@ -10,6 +10,8 @@ function SignUpPage() {
     const [userName, setUserName] = useState("");
     const [userNum, setUserNum] = useState("");
 
+    const pwdComment = "비밀번호 형식은 숫자, 영어 알파벳, 특수문자가 \n포함된 8자 이상이어야 합니다.";
+
     const navigate = useNavigate();
 
     const postSignUpData = async() => {
@@ -50,7 +52,7 @@ function SignUpPage() {
                     value={userPwd}
                     onChange={(e) => setUserPwd(e.target.value)} />
                 </InputSection>
-                비밀번호 형식은 숫자, 영어 알파벳, 특수문자가 포함된 8자 이상이어야 합니다.
+                {pwdComment}
                 <InputSection>
                     닉네임
                     <NameInput
@@ -71,7 +73,7 @@ function SignUpPage() {
                     회원가입
                 </SignUpBtn>
                 <LoginBtn type="button" onClick={() => { navigate('/'); }}>
-                로그인
+                로그인 페이지
                 </LoginBtn>
                 </BtnSection>
             </SignUpContainer>
@@ -96,6 +98,8 @@ const SignUpContainer = styled.div`
     margin-top: 5rem;
 
     background-color: yellow;
+
+    white-space: pre-line;
 `
 
 const SignUpTitle = styled.div`
