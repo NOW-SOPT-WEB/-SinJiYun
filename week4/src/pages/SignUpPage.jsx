@@ -36,34 +36,36 @@ function SignUpPage() {
         <SignUpWrapper>
             <SignUpContainer>
                 <SignUpTitle>회원가입 페이지</SignUpTitle>
-                <IDInputSection>
+                <InputSection>
                     ID
                     <IDInput
                     type="text"
                     value={userId}
                     onChange={(e) => setUserId(e.target.value)} />
-                </IDInputSection>
-                <PWInputSection>
+                </InputSection>
+                <InputSection>
                     PW
                     <PWInput
                     type="text"
                     value={userPwd}
                     onChange={(e) => setUserPwd(e.target.value)} />
-                </PWInputSection>
-                <NameInputSection>
+                </InputSection>
+                비밀번호 형식은 숫자, 영어 알파벳, 특수문자가 포함된 8자 이상이어야 합니다.
+                <InputSection>
                     닉네임
                     <NameInput
                     type="text"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)} />
-                </NameInputSection>
-                <NumInputSection>
+                </InputSection>
+                <InputSection>
                     전화번호
                     <NumInput
                     type="text"
                     value={userNum}
                     onChange={(e) => setUserNum(e.target.value)} />
-                </NumInputSection>
+                </InputSection>
+                전화번호 형식은 010-0000-0000입니다.
                 <BtnSection>
                 <SignUpBtn type="button" onClick={postSignUpData}>
                     회원가입
@@ -104,30 +106,24 @@ const SignUpTitle = styled.div`
     font-size: 2.5rem;
 `
 
-const IDInputSection = styled.section`
+const InputSection = styled.section`
 `
 
 const IDInput = styled.input`
     margin: 2rem;
 `
-const PWInputSection = styled.section`
-`
 
 const PWInput = styled.input`
     margin: 2rem;
+    margin-bottom: 0;
 `
-const NameInputSection = styled.section`
-`
-
 const NameInput = styled.input`
     margin: 2rem;
 `
 
-const NumInputSection = styled.section`
-`
-
 const NumInput = styled.input`
     margin: 2rem;
+    margin-bottom: 0;
 `
 
 const BtnSection = styled.section`
