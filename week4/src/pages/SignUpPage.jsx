@@ -1,26 +1,36 @@
-import React from 'react'
+import { React, useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import styled from "styled-components";
-
-async function postSignUpData() {
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/member/join`,
-        {
-            authenticationId: id,
-            password: password,
-            nickname: nickname,
-            phone: phone,
-        }
-      );
-      return response.data;
-    } catch (err) {
-        console.log(err);
-        alert(err.response.data.message);
-    }
-  }
 
 
 function SignUpPage() {
+    const [userId, setUserId] = useState("");
+    const [userPwd, setUserPwd] = useState("");
+    const [userName, setUserName] = useState("");
+    const [userNum, setUserNum] = useState("");
+
+    const navigate = useNavigate();
+
+    const postSignUpData = async() => {
+        try {
+            const response = await axios.post(
+            `${import.meta.env.VITE_SERVER_URL}/member/join`,
+            {
+                authenticationId: userId,
+                password: userPwd,
+                nickname: userName,
+                phone: userNum,
+            }
+            );
+            console.log(response.data.message);
+            return response.data;
+            } catch (err) {
+                console.log(err);
+                alert(err.response.data.message);
+                console.log(userPwd);
+            }
+    }
 
   return (
     <SignUpWrapper>
@@ -28,28 +38,40 @@ function SignUpPage() {
             <SignUpTitle>회원가입 페이지</SignUpTitle>
             <IDInputSection>
                 ID
-                <IDInput>
-
-                </IDInput>
+                <IDInput
+                type="text"
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)} />
             </IDInputSection>
             <PWInputSection>
                 PW
-                <PWInput>
-
-                </PWInput>
+                <PWInput
+                type="text"
+                value={userPwd}
+                onChange={(e) => setUserPwd(e.target.value)} />
             </PWInputSection>
             <NameInputSection>
                 닉네임
-                <NameInput>
-
-                </NameInput>
+                <NameInput
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)} />
             </NameInputSection>
             <NumInputSection>
                 전화번호
-                <NumInput>
-
-                </NumInput>
+                <NumInput
+                type="text"
+                value={userNum}
+                onChange={(e) => setUserNum(e.target.value)} />
             </NumInputSection>
+            <BtnSection>
+            <SignUpBtn type="button" onClick={postSignUpData}>
+                회원가입
+            </SignUpBtn>
+            <BackBtn type="button" onClick={() => { navigate('/'); }}>
+            뒤로가기
+            </BackBtn>
+            </BtnSection>
         </SignUpContainer>
     </SignUpWrapper>
   )
@@ -105,5 +127,17 @@ const NumInputSection = styled.section`
 `
 
 const NumInput = styled.input`
+    margin: 2rem;
+`
+
+const BtnSection = styled.section`
+    
+`
+
+const SignUpBtn = styled.button`
+    margin: 2rem;
+`
+
+const BackBtn = styled.button`
     margin: 2rem;
 `
