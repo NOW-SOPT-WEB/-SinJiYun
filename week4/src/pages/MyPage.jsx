@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import Dropdown from '../Components/Dropdown';
+import BtnComponent from '../Components/BtnComponent';
 
 function MyPage() {
     const { location } = useParams();
@@ -38,7 +39,7 @@ function MyPage() {
     const patchPwdData = async() => {
         
         if (!userPwd || !newPwd || !checkPwd) {
-            alert('모든 칸을 입력해 주세요!');
+            alert('모든 정보를 입력해 주세요!');
             return;
         }
 
@@ -112,9 +113,10 @@ function MyPage() {
                     비밀번호 변경
                 </ChangeBtn>
                 </Dropdown>
-                <MainBtn type="button" onClick={() => { navigate(`/main/${location}`); }}>
-                    홈으로
-                </MainBtn>
+                <BtnComponent 
+                        type="button" 
+                        buttonTitle = {"홈으로"}
+                        onClickFunc={() =>  navigate(`/main/${location}`)} />
             </MyPageContainer>
         </MyPageWrapper>
     )
@@ -163,17 +165,15 @@ const PWInputSection = styled.section`
 const PWInput = styled.input`
     margin: 1rem;
 `
+
 const NewPWInput = styled.input`
     margin: 1rem;
 `
+
 const CheckPWInput = styled.input`
     margin: 1rem;
 `
 
 const ChangeBtn = styled.button`
-    
-`
-
-const MainBtn = styled.button`
     
 `

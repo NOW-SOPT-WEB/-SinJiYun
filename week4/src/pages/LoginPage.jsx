@@ -2,6 +2,7 @@ import { React, useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import BtnComponent from '../Components/BtnComponent';
 
 function Login() {
     const [userId, setUserId] = useState("");
@@ -49,12 +50,14 @@ function Login() {
                     onChange={(e) => setUserPwd(e.target.value)} />
             </PWInputSection>
             <BtnSection>
-            <LoginBtn type="button" onClick={postLoginData}>
-                로그인
-            </LoginBtn>
-            <SignUpBtn type="button" onClick={() => { navigate('/signup'); }}>
-                회원가입
-            </SignUpBtn>
+            <BtnComponent 
+                type="button" 
+                buttonTitle = {"로그인"}
+                onClickFunc={postLoginData} />
+            <BtnComponent 
+                type="button" 
+                buttonTitle = {"회원가입"}
+                onClickFunc={() => navigate('/signup')} />
             </BtnSection>
         </LoginContainer>
         </LoginWrapper>
@@ -113,12 +116,6 @@ const PWInput = styled.input`
 `
 
 const BtnSection = styled.section`
-    
-`
-
-const LoginBtn = styled.button`
-    margin: 2rem;
-`
-const SignUpBtn = styled.button`
-    margin: 2rem;
+    display: flex;
+    float: left;
 `

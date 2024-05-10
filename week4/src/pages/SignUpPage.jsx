@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import BtnComponent from '../Components/BtnComponent';
 
 
 function SignUpPage() {
@@ -69,13 +70,16 @@ function SignUpPage() {
                 </InputSection>
                 전화번호 형식은 010-0000-0000입니다.
                 <BtnSection>
-                <SignUpBtn type="button" onClick={postSignUpData}>
-                    회원가입
-                </SignUpBtn>
-                <LoginBtn type="button" onClick={() => { navigate('/'); }}>
-                로그인 페이지
-                </LoginBtn>
+                    <BtnComponent 
+                        type="button" 
+                        buttonTitle = {"회원가입"}
+                        onClickFunc={postSignUpData} />
+                    <BtnComponent 
+                    type="button" 
+                    buttonTitle = {"로그인 페이지"}
+                    onClickFunc={() =>  navigate('/')} />
                 </BtnSection>
+                
             </SignUpContainer>
         </SignUpWrapper>
     )
@@ -131,13 +135,6 @@ const NumInput = styled.input`
 `
 
 const BtnSection = styled.section`
-    
-`
-
-const SignUpBtn = styled.button`
-    margin: 2rem;
-`
-
-const LoginBtn = styled.button`
-    margin: 2rem;
+    display: flex;
+    float: left;
 `

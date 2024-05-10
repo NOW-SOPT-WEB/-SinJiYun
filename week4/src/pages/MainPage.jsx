@@ -1,24 +1,25 @@
 import React from 'react'
 import { useNavigate, useParams  } from "react-router-dom";
 import styled from "styled-components";
+import BtnComponent from '../Components/BtnComponent';
 
 function MainPage() {
     const { location } = useParams();
 
     const navigate = useNavigate();
 
-    console.log(location);
-
     return (
         <MainWrapper>
             <MainImg src="../src/assets/imges/SOPT.png"/>
             <BtnSection>
-                <MyPageBtn type="button" onClick={() => { navigate(`/mypage/${location}`); }}>
-                    내 정보
-                </MyPageBtn>
-                <SignUpBtn type="button" onClick={() => { navigate('/signup'); }}>
-                    회원가입
-                </SignUpBtn>
+                <BtnComponent
+                type="button"
+                buttonTitle={"내 정보"}
+                onClickFunc={() => navigate(`/mypage/${location}`)} />
+                <BtnComponent
+                type="button"
+                buttonTitle={"회원가입"}
+                onClickFunc={() => navigate('/signup')} />
                 </BtnSection>
         </MainWrapper>
     )
@@ -41,7 +42,8 @@ const MainImg = styled.img`
     margin-bottom: 3rem;
 `
 const BtnSection = styled.section`
-    
+    display: flex;
+    float: left;
 `
 const MyPageBtn = styled.button`
     margin: 2rem;
