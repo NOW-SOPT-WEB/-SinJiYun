@@ -1,38 +1,62 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import styled from "styled-components";
 
 function Login() {
+    const [userId, setUserId] = useState("");
+    const [userPwd, setUserPwd] = useState("");
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  return (
-    <LoginWrapper>
-      <LoginContainer>
-        <LoginTitle>Login</LoginTitle>
-        <IDInputSection>
-            ID
-            <IDInput>
+    const postLoginData = async() => {
+        try {
+            const response = await axios.post(
+            `${import.meta.env.VITE_SERVER_URL}/member/login`,
+            {
+                authenticationId: userId,
+                password: userPwd,
+            }
+            );
+            navigate('/main')
+            alert(response.data.message);
+            return response.data;
+            } catch (err) {
+                console.log(err);
+                alert(err.response.data.message);
+            }
+    }
 
-            </IDInput>
-        </IDInputSection>
-        <PWInputSection>
-            PW
-            <PWInput>
-
-            </PWInput>
-        </PWInputSection>
-        <BtnSection>
-        <LoginBtn type="button">
-            로그인
-        </LoginBtn>
-        <SignUpBtn type="button" onClick={() => { navigate('/signup'); }}>
-            회원가입
-        </SignUpBtn>
-        </BtnSection>
-      </LoginContainer>
-    </LoginWrapper>
-  )
+    return (
+        <LoginWrapper>
+        <LoginContainer>
+            <LoginTitle>Login</LoginTitle>
+            <LoginImg src="../src/assets/imges/SOPT.png"/>
+            <IDInputSection>
+                ID
+                <IDInput
+                    type="text"
+                    value={userId}
+                    onChange={(e) => setUserId(e.target.value)} />
+            </IDInputSection>
+            <PWInputSection>
+                PW
+                <PWInput
+                    type="text"
+                    value={userPwd}
+                    onChange={(e) => setUserPwd(e.target.value)} />
+            </PWInputSection>
+            <BtnSection>
+            <LoginBtn type="button" onClick={postLoginData}>
+                로그인
+            </LoginBtn>
+            <SignUpBtn type="button" onClick={() => { navigate('/signup'); }}>
+                회원가입
+            </SignUpBtn>
+            </BtnSection>
+        </LoginContainer>
+        </LoginWrapper>
+    )
 }
 
 export default Login
@@ -49,7 +73,7 @@ const LoginContainer = styled.div`
     align-items: center;
 
     width: 35rem;
-    height: 40rem;
+    height: 50rem;
     margin-top: 5rem;
 
     background-color: yellow;
@@ -58,9 +82,17 @@ const LoginContainer = styled.div`
 const LoginTitle = styled.div`
     display: flex;
 
-    margin: 5rem;
+    margin: 2rem;
 
     font-size: 2.5rem;
+`
+
+const LoginImg = styled.img`
+    display: flex;
+
+    width: 35rem;
+    height: 20rem;
+    margin-bottom: 3rem;
 `
 
 const IDInputSection = styled.section`

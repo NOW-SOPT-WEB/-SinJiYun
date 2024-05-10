@@ -23,58 +23,58 @@ function SignUpPage() {
                 phone: userNum,
             }
             );
-            console.log(response.data.message);
+            navigate('/')
+            alert(response.data.message);
             return response.data;
             } catch (err) {
                 console.log(err);
                 alert(err.response.data.message);
-                console.log(userPwd);
             }
     }
 
-  return (
-    <SignUpWrapper>
-        <SignUpContainer>
-            <SignUpTitle>회원가입 페이지</SignUpTitle>
-            <IDInputSection>
-                ID
-                <IDInput
-                type="text"
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)} />
-            </IDInputSection>
-            <PWInputSection>
-                PW
-                <PWInput
-                type="text"
-                value={userPwd}
-                onChange={(e) => setUserPwd(e.target.value)} />
-            </PWInputSection>
-            <NameInputSection>
-                닉네임
-                <NameInput
-                type="text"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)} />
-            </NameInputSection>
-            <NumInputSection>
-                전화번호
-                <NumInput
-                type="text"
-                value={userNum}
-                onChange={(e) => setUserNum(e.target.value)} />
-            </NumInputSection>
-            <BtnSection>
-            <SignUpBtn type="button" onClick={postSignUpData}>
-                회원가입
-            </SignUpBtn>
-            <BackBtn type="button" onClick={() => { navigate('/'); }}>
-            뒤로가기
-            </BackBtn>
-            </BtnSection>
-        </SignUpContainer>
-    </SignUpWrapper>
-  )
+    return (
+        <SignUpWrapper>
+            <SignUpContainer>
+                <SignUpTitle>회원가입 페이지</SignUpTitle>
+                <IDInputSection>
+                    ID
+                    <IDInput
+                    type="text"
+                    value={userId}
+                    onChange={(e) => setUserId(e.target.value)} />
+                </IDInputSection>
+                <PWInputSection>
+                    PW
+                    <PWInput
+                    type="text"
+                    value={userPwd}
+                    onChange={(e) => setUserPwd(e.target.value)} />
+                </PWInputSection>
+                <NameInputSection>
+                    닉네임
+                    <NameInput
+                    type="text"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)} />
+                </NameInputSection>
+                <NumInputSection>
+                    전화번호
+                    <NumInput
+                    type="text"
+                    value={userNum}
+                    onChange={(e) => setUserNum(e.target.value)} />
+                </NumInputSection>
+                <BtnSection>
+                <SignUpBtn type="button" onClick={postSignUpData}>
+                    회원가입
+                </SignUpBtn>
+                <BackBtn type="button" onClick={() => { navigate('/'); }}>
+                뒤로가기
+                </BackBtn>
+                </BtnSection>
+            </SignUpContainer>
+        </SignUpWrapper>
+    )
 }
 
 export default SignUpPage
