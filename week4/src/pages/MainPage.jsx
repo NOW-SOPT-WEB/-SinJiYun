@@ -33,6 +33,10 @@ const MainWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column; 
+
+    height: 60rem;
+
+    background-color: ${({ theme }) => theme.colors.BgColor};
 `
 const MainImg = styled.img`
     display: flex;

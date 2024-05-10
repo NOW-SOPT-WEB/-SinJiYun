@@ -70,6 +70,10 @@ const LoginWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    height: 60rem;
+
+    background-color: ${({ theme }) => theme.colors.BgColor};
 `
 
 const LoginContainer = styled.div`
@@ -79,9 +83,8 @@ const LoginContainer = styled.div`
 
     width: 35rem;
     height: 50rem;
-    margin-top: 5rem;
 
-    background-color: yellow;
+    background-color: ${({ theme }) => theme.colors.LightBlue1};
 `
 
 const LoginTitle = styled.div`

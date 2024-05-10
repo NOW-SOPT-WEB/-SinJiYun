@@ -72,19 +72,19 @@ function MyPage() {
             <MyPageContainer>
                 <MyPageTitle>마이 페이지</MyPageTitle>
                 <InfoSection>
-                    아이디 {userData.authenticationId}
+                    아이디 : {userData.authenticationId}
                 </InfoSection>
                 <InfoSection>
-                    이름 {userData.nickname}
+                    이름 : {userData.nickname}
                 </InfoSection>
                 <InfoSection>
-                    전화번호 {userData.phone}
+                    전화번호 : {userData.phone}
                 </InfoSection>
                 <DropdownBtn type="button" onClick={e => setToggleOpen(!toggleOpen)}>
                     {
                         toggleOpen
-                        ? '비밀번호 변경 ▼'
-                        : '비밀번호 변경 ▲'
+                        ? '비밀번호 변경 ▲'
+                        : '비밀번호 변경 ▼'
                     }
                 </DropdownBtn>
                 <Dropdown isOpen={toggleOpen}>
@@ -109,9 +109,10 @@ function MyPage() {
                     value={checkPwd}
                     onChange={(e) => setCheckPwd(e.target.value)}/>
                 </PWInputSection>
-                <ChangeBtn type="button" onClick={patchPwdData}>
-                    비밀번호 변경
-                </ChangeBtn>
+                <BtnComponent 
+                        type="button" 
+                        buttonTitle = {"비밀번호 변경"}
+                        onClickFunc={patchPwdData} />
                 </Dropdown>
                 <BtnComponent 
                         type="button" 
@@ -128,6 +129,8 @@ const MyPageWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: ${({ theme }) => theme.colors.BgColor};
 `
 
 const MyPageContainer = styled.div`
@@ -139,7 +142,7 @@ const MyPageContainer = styled.div`
     height: 50rem;
     margin-top: 5rem;
 
-    background-color: yellow;
+    background-color: ${({ theme }) => theme.colors.LightBlue1};
 `
 
 const MyPageTitle = styled.div`
@@ -157,6 +160,13 @@ const DropdownBtn = styled.button`
     display: flex;
 
     margin-top: 2rem;
+    border: 0;
+
+    background-color: ${({ theme }) => theme.colors.LightBlue1};
+
+    &:hover{
+        font-weight: bold;
+    }
 `
 const PWInputSection = styled.section`
     
@@ -172,8 +182,4 @@ const NewPWInput = styled.input`
 
 const CheckPWInput = styled.input`
     margin: 1rem;
-`
-
-const ChangeBtn = styled.button`
-    
 `

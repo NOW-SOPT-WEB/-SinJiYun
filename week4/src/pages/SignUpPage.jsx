@@ -91,6 +91,8 @@ const SignUpWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: ${({ theme }) => theme.colors.BgColor};
 `
 const SignUpContainer = styled.div`
     display: flex;
@@ -101,7 +103,7 @@ const SignUpContainer = styled.div`
     height: 50rem;
     margin-top: 5rem;
 
-    background-color: yellow;
+    background-color: ${({ theme }) => theme.colors.LightBlue1};
 
     white-space: pre-line;
 `

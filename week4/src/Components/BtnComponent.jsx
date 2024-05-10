@@ -20,4 +20,12 @@ const ButtonComponent = styled.button`
     height: 2rem;
     margin: 2rem;
     border: 0;
+    border-radius: 0.7rem;
+
+    
+    background-color: ${({ theme }) => theme.colors.LightBlue2};
+
+    &:hover{
+    background-color: ${({ theme }) => theme.colors.LightBlue3};
+    }
 `
