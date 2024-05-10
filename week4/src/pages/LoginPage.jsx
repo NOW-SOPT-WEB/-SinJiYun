@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -18,8 +18,10 @@ function Login() {
                 password: userPwd,
             }
             );
-            navigate('/main')
+            const memberId = response.headers.location;
+            navigate(`/main/${memberId}`)
             alert(response.data.message);
+            console.log(response.data);
             return response.data;
             } catch (err) {
                 console.log(err);

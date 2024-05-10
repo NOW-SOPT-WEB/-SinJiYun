@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
@@ -68,9 +68,9 @@ function SignUpPage() {
                 <SignUpBtn type="button" onClick={postSignUpData}>
                     회원가입
                 </SignUpBtn>
-                <BackBtn type="button" onClick={() => { navigate('/'); }}>
-                뒤로가기
-                </BackBtn>
+                <LoginBtn type="button" onClick={() => { navigate('/'); }}>
+                로그인
+                </LoginBtn>
                 </BtnSection>
             </SignUpContainer>
         </SignUpWrapper>
@@ -90,7 +90,7 @@ const SignUpContainer = styled.div`
     align-items: center;
 
     width: 35rem;
-    height: 40rem;
+    height: 50rem;
     margin-top: 5rem;
 
     background-color: yellow;
@@ -138,6 +138,6 @@ const SignUpBtn = styled.button`
     margin: 2rem;
 `
 
-const BackBtn = styled.button`
+const LoginBtn = styled.button`
     margin: 2rem;
 `
