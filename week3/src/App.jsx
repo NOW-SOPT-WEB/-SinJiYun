@@ -1,14 +1,12 @@
 import { ThemeProvider } from "styled-components";
 import './styles/fonts.css';
-import Header from "./layout/Header";
-import SelectLevel from "./components/SelectLevel";
 import theme from "./styles/theme"
+import Router from "./Router";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-    <Header />
-    <SelectLevel />
+    <Router />
     </ThemeProvider>
   );
 }
