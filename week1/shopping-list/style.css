@@ -62,6 +62,20 @@ li {
   align-items: center;
   padding: 1rem;
   background-color: #ebe3d5;
+  &:hover {
+    background-color: #b0a695;
+    color: white;
+  }
+}
+
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+a:hover {
+  color: white;
 }
 
 /* banner-box */
@@ -69,13 +83,13 @@ li {
   display: flex;
   overflow: hidden;
   width: 45rem;
-  margin: 8rem 0 0 35rem; 
+  margin: 8rem 0 0 35rem;
 }
 
 .banner {
   display: flex;
-  width: 200%; 
-  animation: imagemove 20s linear infinite;
+  width: 200%;
+  animation: imageMove 20s linear infinite;
 }
 
 .banner img {
@@ -84,7 +98,7 @@ li {
   margin-right: 0.7rem;
 }
 
-@keyframes imagemove {
+@keyframes imageMove {
   0% {
     transform: translateX(0);
   }
@@ -94,7 +108,7 @@ li {
 }
 /* main */
 main {
-  margin-top: 8rem;
+  margin-top: 3rem;
   margin-bottom: 3rem;
   margin-left: 15rem;
   background-color: #f3eeea;
@@ -131,6 +145,28 @@ h2 {
   margin: 1rem;
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
+}
+
+.product:hover {
+  animation: producthover 1s linear infinite;
+}
+
+@keyframes producthover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fa-heart {
+  &:hover {
+    color: red;
+  }
 }
 
 /* footer */
