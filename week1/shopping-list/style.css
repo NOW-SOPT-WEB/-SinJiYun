@@ -1,122 +1,147 @@
 @import "reset.css";
 
 /* body */
-body{
-    background-color: #F3EEEA;
-    
-    font-weight: 400;
-    font-family: "Gowun Dodum", sans-serif;
-    font-style: normal;
+body {
+  background-color: #f3eeea;
+
+  font-weight: 400;
+  font-family: "Gowun Dodum", sans-serif;
+  font-style: normal;
 }
 
-
 /* header */
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6rem;
-    background-color: #EBE3D5;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  background-color: #ebe3d5;
+
+  z-index: 2;
 }
 
 .fa-globe,
 .fa-bars {
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
 }
 
-h1{
-    font-size: 3rem;
+h1 {
+  font-size: 3rem;
 }
-
 
 /* nav */
 nav {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 10rem;
-    left: 2rem;
-    width: 9rem;
-    height: 15rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: #B0A695;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 10rem;
+  left: 2rem;
+  width: 9rem;
+  height: 15rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #b0a695;
 }
 
-.nav_title{
-    padding-right: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-left: 1.5rem;
-    font-size: 1.2rem;
-    text-align: center;
+.nav_title {
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 li {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    background-color: #EBE3D5;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #ebe3d5;
 }
 
+/* banner-box */
+.banner-box {
+  display: flex;
+  overflow: hidden;
+  width: 45rem;
+  margin: 8rem 0 0 35rem; 
+}
+
+.banner {
+  display: flex;
+  width: 200%; 
+  animation: imagemove 20s linear infinite;
+}
+
+.banner img {
+  width: 9rem;
+  height: 9rem;
+  margin-right: 0.7rem;
+}
+
+@keyframes imagemove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 /* main */
-main{
-    margin-top: 8rem;
-    margin-bottom: 3rem;
-    margin-left: 15rem;
-    background-color: #F3EEEA;
+main {
+  margin-top: 8rem;
+  margin-bottom: 3rem;
+  margin-left: 15rem;
+  background-color: #f3eeea;
 }
 
-h2{
-    font-size: 2rem;
+h2 {
+  font-size: 2rem;
 }
 
-.all
-.meal
-.desssert
-.drink{
-    padding-top: 2rem;
-    padding-left: 1rem;
+.all .meal .desssert .drink {
+  padding-top: 2rem;
+  padding-left: 1rem;
 }
 
-.product_layout{
-    display: flex;
-    flex-wrap: wrap;
+.product_layout {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.product{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 1rem;
-    margin: 1rem;
-    background-color: white;
-    line-height: 1.5rem;
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin: 1rem;
+  background-color: white;
+  line-height: 1.5rem;
 }
 
-.product_img{
-    display: flex;
-    width: 12rem;
-    height: 16rem;
-    margin: 1rem;
-    margin-bottom: 0.5rem;
-    border-radius: 0.5rem;
+.product_img {
+  display: flex;
+  width: 12rem;
+  height: 16rem;
+  margin: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 /* footer */
-footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 7rem;
-    background-color: #776B5D;
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7rem;
+  background-color: #776b5d;
 }
