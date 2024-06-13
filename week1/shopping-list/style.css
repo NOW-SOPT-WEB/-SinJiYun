@@ -4,6 +4,7 @@
 body {
   background-color: #f3eeea;
 
+
   font-weight: 400;
   font-family: "Gowun Dodum", sans-serif;
   font-style: normal;
@@ -24,10 +25,18 @@ header {
   z-index: 2;
 }
 
+.home,
+.sidebarBtn{
+    border: none;
+    background-color: transparent;
+}
+
 .fa-globe,
 .fa-bars {
+
   margin-right: 1.5rem;
   margin-left: 1.5rem;
+
 }
 
 h1 {
@@ -84,6 +93,7 @@ a:hover {
   overflow: hidden;
   width: 45rem;
   margin: 8rem 0 0 35rem;
+
 }
 
 .banner {
@@ -167,6 +177,16 @@ h2 {
   &:hover {
     color: red;
   }
+
+}
+
+.fa-heart{
+    border: none;
+    background-color: transparent;
+}
+
+.fa-heart:hover{
+    color:red;
 }
 
 /* footer */
@@ -181,3 +201,4 @@ footer {
   height: 7rem;
   background-color: #776b5d;
 }
+

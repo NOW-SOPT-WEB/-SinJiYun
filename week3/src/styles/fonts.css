@@ -1,0 +1,16 @@
+/* https://velog.io/@bnb8419/React%EC%97%90%EC%84%9C-%ED%8F%B0%ED%8A%B8-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0 */
+
+@font-face{
+    font-family: "KBO Dia Gothic Bold";
+    src : url('../assets/fonts/KBO_Dia_Gothic/KBODiaGothic-Bold.ttf');
+}
+
+@font-face{
+    font-family: "KBO Dia Gothic Medium";
+    src : url('../assets/fonts/KBO_Dia_Gothic/KBODiaGothic-Medium.ttf');
+}
+
+@font-face{
+    font-family: "KBO Dia Gothic Light";
+    src : url('../assets/fonts/KBO_Dia_Gothic/KBODiaGothic-Light.ttf');
+}
