@@ -5,7 +5,7 @@ import Card from "./Card";
 import ClearModal from "./ClearModal";
 import { LEVEL } from "../constants/Level";
 
-export default function CardContainer({updateScore}) {
+export default function CardContainer({updateScore, level}) {
 
     // // 게임이 끝났는지 저장
     const [finished, setFinished] = useState(false)
@@ -13,7 +13,7 @@ export default function CardContainer({updateScore}) {
     const [clicked, setClicked] = useState([])
 
     // 게임이 끝나면 재배열 (finish 값이 변경되는 경우)
-    const MixedCardList = useMemo(() => MixedCardDeck(), [finished])
+    const MixedCardList = useMemo(() => MixedCardDeck(level), [finished])
 
     // 인덱스로 카드 선택
     const handleClick = (idx) => {
@@ -97,12 +97,12 @@ const CardsLayout = styled.section`
 `
 
 
-function MixedCardDeck(){
+function MixedCardDeck(level){
     let cardDeck = [];
     let randomNumberArr = [];
 
     // 여기는 난이도 개수만큼
-    for (let i = 0; i < LEVEL.EASY; i++) {
+    for (let i = 0; i < level; i++) {
         // 랜덤 값 뽑기
         let randomNumber = getRandom(CARDS.length - 1);    // 이미지 개수만큼
     
@@ -121,7 +121,7 @@ function MixedCardDeck(){
     shuffle(randomNumberArr);
 
     // 섞은 값으로 카드 세팅
-    for (let i = 0; i < LEVEL.EASY * 2; i++) {
+    for (let i = 0; i < level * 2; i++) {
         cardDeck.push({
             id: CARDS[randomNumberArr[i]].id,
             name: CARDS[randomNumberArr[i]].name, 
